@@ -43,8 +43,8 @@ end
 # motoukesテーブルのテストデータを作成
 3.times do |i|
     Motouke.create!(
-        userkey_cd:  "#{(i + 1) * 1}",
-        userkey_nm: "元請け株式会社#{i + 1}"
+        motouke_cd:  "#{(i + 1) * 1}",
+        motouke_nm: "元請け株式会社#{i + 1}"
     )
 end
 
