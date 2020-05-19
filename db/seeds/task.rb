@@ -1,17 +1,17 @@
-#rails db:seed:task ƒRƒ}ƒ“ƒh‚ÅÀs‚·‚é
+#rails db:seed:task 
 
-# Tasksƒe[ƒuƒ‹‚ÌƒeƒXƒgƒf[ƒ^‚ğì¬
+# Tasksãƒ†ãƒ¼ãƒ–ãƒ«ã®ãƒ†ã‚¹ãƒˆãƒ‡ãƒ¼ã‚¿ã‚’ä½œæˆ
 Task.create!(
     dantai_kbn:     '1',
-    todofuken:      '–kŠC“¹',
+    todofuken:      'åŒ—æµ·é“',
     jigyou_kbn:     '1',
-    kijyou:         '‹@êA',
-    naiyou:         '“à—e‚ ‚ ',
-    jisyou:         '–Û‚ ‚ ',
-    syochi:         'ˆ’u‚ ‚ ',
-    biko:           '”õl‚ ‚ ',
-    syubetu_kbn:    '’Êí',
-    hosyou_kbn:     '”NŠÔ•Ûç',
+    kijyou:         'æ©Ÿå ´A',
+    naiyou:         'å†…å®¹ã‚ã‚',
+    jisyou:         'äº‹è±¡ã‚ã‚',
+    syochi:         'å‡¦ç½®ã‚ã‚',
+    biko:           'å‚™è€ƒã‚ã‚',
+    syubetu_kbn:    'é€šå¸¸',
+    hosyou_kbn:     'å¹´é–“ä¿å®ˆ',
     renraku_d:      '2020-04-01',
     renraku_t:      '10:01:02',
     syanai:         '5.0',
@@ -31,3 +31,4 @@ Task.create!(
     motouke_id:     '1',
     userkey_id:     '1'
 )
+

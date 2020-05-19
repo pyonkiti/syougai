@@ -1,8 +1,6 @@
-#rails db:seed:user ƒRƒ}ƒ“ƒh‚ÅŽÀs‚·‚é
-
-# Userƒe[ƒuƒ‹‚ÌƒeƒXƒgƒf[ƒ^‚ðì¬
+# Userãƒ†ãƒ¼ãƒ–ãƒ«ã®ãƒ†ã‚¹ãƒˆãƒ‡ãƒ¼ã‚¿ã‚’ä½œæˆ
 User.create!(
-    name:            'ŠÇ—ŽÒ',
+    name:            'ç®¡ç†è€…',
     name_id:         'admin',
     password:        'admin',
     password_confirmation: 'admin',
@@ -10,7 +8,7 @@ User.create!(
 )
 
 User.create!(
-    name:            'ƒ†[ƒU[',
+    name:            'ãƒ¦ãƒ¼ã‚¶ãƒ¼',
     name_id:         'user',
     password:        'user',
     password_confirmation: 'user',

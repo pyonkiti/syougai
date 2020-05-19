@@ -1,9 +1,10 @@
-#rails db:seed:motouke ƒRƒ}ƒ“ƒh‚ÅŽÀs‚·‚é
+#rails db:seed:motouke 
 
-# motoukesƒe[ƒuƒ‹‚ÌƒeƒXƒgƒf[ƒ^‚ðì¬
+# motoukesãƒ†ãƒ¼ãƒ–ãƒ«ã®ãƒ†ã‚¹ãƒˆãƒ‡ãƒ¼ã‚¿ã‚’ä½œæˆ
 3.times do |i|
     Motouke.create!(
         motouke_cd:  "#{(i + 1) * 1}",
-        motouke_nm: "Œ³¿‚¯Š”Ž®‰ïŽÐ#{i + 1}"
+        motouke_nm: "å…ƒè«‹ã‘æ ªå¼ä¼šç¤¾#{i + 1}"
     )
 end
+

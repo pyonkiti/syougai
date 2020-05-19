@@ -1,4 +1,4 @@
-#rails db:seed:userkey コマンドで実行する
+#rails db:seed:userkey 
 
 # userkeys
 3.times do |i|

@@ -1,17 +1,17 @@
-#rails db:seed:enduser ƒRƒ}ƒ“ƒh‚ÅÀs‚·‚é
+#rails db:seed:enduser
 
-# endusersƒe[ƒuƒ‹‚ÌƒeƒXƒgƒf[ƒ^‚ğì¬
+# endusersãƒ†ãƒ¼ãƒ–ãƒ«ã®ãƒ†ã‚¹ãƒˆãƒ‡ãƒ¼ã‚¿ã‚’ä½œæˆ
 3.times do |i|
     Enduser.create!(
         enduser_cd:  "#{(i + 1) * 100}",
-        todofuken:   "–kŠC“¹",
-        enduser_nm:  "D–ys#{i + 1}"
+        todofuken:   "åŒ—æµ·é“",
+        enduser_nm:  "æœ­å¹Œå¸‚#{i + 1}"
     )
 end
 3.times do |i|
     Enduser.create!(
         enduser_cd:  "#{(i + 1) * 1}",
         todofuken:   nil,
-        enduser_nm:  "AAŠ”®‰ïĞ#{i + 1}"
+        enduser_nm:  "AAæ ªå¼ä¼šç¤¾#{i + 1}"
     )
 end
