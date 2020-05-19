@@ -1,0 +1,20 @@
+h2 ログイン
+br
+br
+
+= form_with scope: :session, local: true do |f|
+    .form-group.row
+        .col-sm-2
+            = f.label :name_id, 'ログインID'
+        .col-sm-8
+            = f.text_field :name_id, class: 'form-control', id: 'session_name_id'
+        .col-sm-2
+    .form-group.row
+        .col-sm-2
+            = f.label :password, 'パスワード'
+        .col-sm-8
+            = f.text_field :password, class: 'form-control', id: 'session_password'
+        .col-sm-2
+
+    br
+    = f.submit 'ログイン', class: 'btn btn-primary'

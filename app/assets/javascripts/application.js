@@ -16,4 +16,6 @@
 //= require bootstrap
 //= require moment
 //= require bootstrap-datetimepicker
+//= require jquery
+//= require jquery_ujs
 //= require_tree .

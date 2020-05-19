@@ -9,34 +9,43 @@ ja:
           has_many: "%{record}が存在しているので削除できません"
     model:
       task: タスク
+      enduser: エンドユーザー（モデル）
+      motouke: 元請け（モデル）
     attributes:
       task:
         id: ID
-        dantai_kbn: 団体区分
-        enduser: エンドユーザー
-        jigyou_kbn: 事業区分
-        kijyou: 機場名
-        motouke: 元請け
+        dantai_kbn: 団体
+        todofuken: 都道府県
+        jigyou_kbn: 事業
+        kijyou: 機場
         naiyou: 内容
         jisyou: 現象／原因
         syochi: 処置
         biko: 備考
-        syubetu_kbn: 種別区分
-        hosyu_kbn: 保守区分
+        syubetu_kbn: 種別
+        hosyou_kbn: 保守区分
         renraku_d: 連絡受付日
         renraku_t: 連絡受付時間
-        syanai: 社内作業時間
         genchi_d: 現地到着日
         genchi_t: 現地到着時間
         sagyou_d: 作業完了日
         sagyou_t: 作業完了時間
-        sagyoukei: 社内合計時間
+        syanai: 社内作業時間
+        syagai: 社外作業時間
         idou: 移動時間
+        teishi: 停止時間
+        project_cd: プロジェクトコード
         taiou_cd: 対応者
-        taiou_sub: 対応者サブ
+        taiou_sub: 対応者（サブ）
         del_flg: 削除
-        created_at: 登録日次
+        created_at: 登録日時
         updated_at: 更新日時
+        enduser_id: エンドユーザ
+        motouke_id: 元請け
+        userkey_id: ユーザーキー
+        enduser: エンドユーザ
+        motouke: 元請け
+        userkey: ユーザーキー
       user:
         name: 名前
         name_id: ユーザーID
@@ -180,9 +189,9 @@ ja:
     select:
       prompt: 選択してください
     submit:
-      create: 登録する
-      submit: 保存する
-      update: 更新する
+      create: 登録
+      submit: 保存
+      update: 更新
   number:
     currency:
       format:
@@ -239,7 +248,9 @@ ja:
   time:
     am: 午前
     formats:
-      default: "%Y年%m月%d日(%a) %H時%M分%S秒 %z"
+      defaultz: "%Y年%m月%d日(%a) %H時%M分%S秒 %z"
+      default: "%Y年%m月%d日(%a) %H時%M分%S秒"
       long: "%Y/%m/%d %H:%M"
       short: "%m/%d %H:%M"
+      time_hm: "%H時%M分"
     pm: 午後    
