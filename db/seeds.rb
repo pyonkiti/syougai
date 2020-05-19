@@ -7,46 +7,54 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 
-# # Userテーブルのテストデータを作成
-# User.create!(
-#     name:            '管理者',
-#     name_id:         'admin',
-#     password:        'admin',
-#     password_confirmation: 'admin',
-#     admin:           'true'
-# )
+# Userテーブルのテストデータを作成
+User.create!(
+    name:            '管理者',
+    name_id:         'admin',
+    password:        'admin',
+    password_confirmation: 'admin',
+    admin:           'true'
+)
 
-# User.create!(
-#     name:            'ユーザー',
-#     name_id:         'user',
-#     password:        'user',
-#     password_confirmation: 'user',
-#     admin:           'false'
-# )
+User.create!(
+    name:            'ユーザー',
+    name_id:         'user',
+    password:        'user',
+    password_confirmation: 'user',
+    admin:           'false'
+)
 
-# # endusersテーブルのテストデータを作成
-# 3.times do |i|
-#     Enduser.create!(
-#         enduser_cd:  "#{(i + 1) * 100}",
-#         todofuken:   "北海道",
-#         enduser_nm:  "札幌市#{i + 1}"
-#     )
-# end
-# 3.times do |i|
-#     Enduser.create!(
-#         enduser_cd:  "#{(i + 1) * 1}",
-#         todofuken:   nil,
-#         enduser_nm:  "AA株式会社#{i + 1}"
-#     )
-# end
+# endusersテーブルのテストデータを作成
+3.times do |i|
+    Enduser.create!(
+        enduser_cd:  "#{(i + 1) * 100}",
+        todofuken:   "北海道",
+        enduser_nm:  "札幌市#{i + 1}"
+    )
+end
+3.times do |i|
+    Enduser.create!(
+        enduser_cd:  "#{(i + 1) * 1}",
+        todofuken:   nil,
+        enduser_nm:  "AA株式会社#{i + 1}"
+    )
+end
 
-# # motoukesテーブルのテストデータを作成
-# 3.times do |i|
-#     Motouke.create!(
-#         motouke_cd:  "#{(i + 1) * 1}",
-#         motouke_nm: "元請け株式会社#{i + 1}"
-#     )
-# end
+# motoukesテーブルのテストデータを作成
+3.times do |i|
+    Motouke.create!(
+        userkey_cd:  "#{(i + 1) * 1}",
+        userkey_nm: "元請け株式会社#{i + 1}"
+    )
+end
+
+# userkeys
+3.times do |i|
+    Userkey.create!(
+        userkey_cd:  "user_#{i + 1}",
+        userkey_nm:  "a"
+    )
+end
 
 # Tasksテーブルのテストデータを作成
 Task.create!(
