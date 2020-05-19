@@ -24,13 +24,13 @@ ActiveRecord::Schema.define(version: 2020_05_18_052340) do
     t.index ["enduser_cd"], name: "index_endusers_on_enduser_cd", unique: true
   end
 
-  create_table "motoukes", force: :cascade do |t|
-    t.integer "motouke_cd", null: false
-    t.string "motouke_nm", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["motouke_cd"], name: "index_motoukes_on_motouke_cd", unique: true
-  end
+#   create_table "motoukes", force: :cascade do |t|
+#     t.integer "motouke_cd", null: false
+#     t.string "motouke_nm", null: false
+#     t.datetime "created_at", null: false
+#     t.datetime "updated_at", null: false
+#     t.index ["motouke_cd"], name: "index_motoukes_on_motouke_cd", unique: true
+#   end
 
 #   create_table "tasks", force: :cascade do |t|
 #     t.integer "dantai_kbn", null: false
@@ -73,22 +73,22 @@ ActiveRecord::Schema.define(version: 2020_05_18_052340) do
 #     t.index ["user_id"], name: "index_tasks_on_user_id"
 #   end
 
-  create_table "userkeys", force: :cascade do |t|
-    t.string "userkey_cd", null: false
-    t.string "userkey_nm"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["userkey_cd"], name: "index_userkeys_on_userkey_cd", unique: true
-  end
+#   create_table "userkeys", force: :cascade do |t|
+#     t.string "userkey_cd", null: false
+#     t.string "userkey_nm"
+#     t.datetime "created_at", null: false
+#     t.datetime "updated_at", null: false
+#     t.index ["userkey_cd"], name: "index_userkeys_on_userkey_cd", unique: true
+#   end
 
-  create_table "users", force: :cascade do |t|
-    t.string "name", null: false
-    t.string "name_id", null: false
-    t.string "password_digest", null: false
-    t.boolean "admin", default: false, null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["name_id"], name: "index_users_on_name_id", unique: true
-  end
+#   create_table "users", force: :cascade do |t|
+#     t.string "name", null: false
+#     t.string "name_id", null: false
+#     t.string "password_digest", null: false
+#     t.boolean "admin", default: false, null: false
+#     t.datetime "created_at", null: false
+#     t.datetime "updated_at", null: false
+#     t.index ["name_id"], name: "index_users_on_name_id", unique: true
+#   end
 
 end
