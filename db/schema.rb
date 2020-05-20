@@ -32,7 +32,7 @@ ActiveRecord::Schema.define(version: 2020_05_18_052340) do
 #     t.index ["motouke_cd"], name: "index_motoukes_on_motouke_cd", unique: true
 #   end
 
-  create_table "tasks", force: :cascade do |t|
+  create_table "tasks", force: :false do |t|
     t.integer "dantai_kbn", null: false
     t.string "todofuken"
     t.integer "jigyou_kbn", null: false
