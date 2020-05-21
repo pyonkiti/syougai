@@ -316,7 +316,7 @@
             = f.label :userkey_id, class: 'control-label'
         .col-sm-10
             = f.select :userkey_id, 
-                    Userkey.all.map{ |i| [i.userkey_cd, i.id] }, 
+                    Userkey.all.order(userkey_cd: "ASC").map{ |i| [i.userkey_cd, i.id] }, 
                     {include_blank: true}, 
                     class: 'form-control', 
                     id: 'task_userkey_id'
