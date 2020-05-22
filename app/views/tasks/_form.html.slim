@@ -314,6 +314,7 @@
     .form-group.row
         .col-sm-2
             = f.label :userkey_id, class: 'control-label'
+            span.badge.badge-warning 必須
         .col-sm-10
             = f.select :userkey_id, 
                     Userkey.all.order(userkey_cd: "ASC").map{ |i| [i.userkey_cd, i.id] }, 
