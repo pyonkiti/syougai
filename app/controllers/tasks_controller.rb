@@ -30,7 +30,7 @@ class TasksController < ApplicationController
     # ransackで検索
     # 2テーブルをInner Joinしている
     @q = current_user.tasks.joins(:enduser, :motouke, :userkey)
-                .select("tasks.*, endusers.enduser_nm, motoukes.motouke_nm, userkeys.userkey_cd")
+                .select("tasks.*, endusers.enduser_nm, motoukes.motouke_nm, userkeys.userkey_cd, userkeys.userkey_nm")
                 .where(del_flg: 0)
                 .order({renraku_d: :desc}, {renraku_t: :desc}, {id: :desc})
                 .ransack(params[:q])

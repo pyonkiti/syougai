@@ -104,8 +104,8 @@ table.table.table-hover
             th = Task.human_attribute_name(:project_cd)
             td = @task.project_cd
         tr
-            th = Task.human_attribute_name(:userkey)
-            td = @task.userkey
+            th = Task.human_attribute_name(:userkey_id)
+            td = "#{@task.userkey_id}" + "　" + "#{@task.userkey.userkey_cd}" + "　" + "#{@task.userkey.userkey_nm}"
         tr
             th = Task.human_attribute_name(:taiou_cd)
             td = @task.taiou_cd

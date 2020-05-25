@@ -116,19 +116,27 @@ br
         = f.hidden_field :del_flg_eq, :value => '0'
     
     / 検索ボタン / 取消ボタン
+    / font-awesome を使う場合、submi⇒buttonにして、type: "submit"を記述しないといけない
+    / = f.submit '検索', class: 'btn btn-outline-primary'
+    / = link_to '取消', tasks_path, class: 'btn btn-outline-primary'
     .form-group.row
-        .col-sm-5
-        .col-sm-1
-            = f.submit '検索', class: 'btn btn-outline-primary'
-        .col-sm-1
-            = link_to '取消', tasks_path, class: 'btn btn-outline-primary'
-        .col-sm-5
+        .col-sm-4
+        .col-sm-2
+            = f.button type: "submit", class: 'btn btn-outline-primary'
+                i class="fa fa-search"  検索
+        .col-sm-2
+            = link_to tasks_path, class: 'btn btn-outline-primary'
+                i class="fas fa-undo-alt"  取消
+        .col-sm-2
+
 
 
 / 'data-turbolinks-track': 'reload' をつけると、リロードしないとJSが有効にならない事象が回避できる
-= link_to '新規登録', new_task_path, 
+= link_to new_task_path, 
         class: 'btn btn-primary', 
         data: {"turbolinks" => false}
+        i class='fas fa-edit'  新規登録
+
 
 / 明細部
 .mb-3
@@ -183,8 +191,8 @@ table.table.table-hover
                     td = nil
 
                 td = task.taiou_cd
-                td = link_to '編集', edit_task_path(task), 
+                td = link_to edit_task_path(task), 
                             class: 'btn btn-primary mr-3', 
                             data: {"turbolinks" => false}
-                    
+                            i class='far fa-edit'  編集
 

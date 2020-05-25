@@ -17,14 +17,19 @@ html
             / セッションIDがセットされているか（ログイン済か）の判断（自作ヘルパー）
             - if current_user
                 / ログイン後の表示
-                li.nav-item = link_to '障害情報一覧', tasks_path, class: 'nav-link', data: {"turbolinks" => false}
+                li.nav-item = link_to '障害情報一覧', tasks_path, 
+                                class: 'nav-link', 
+                                data: {"turbolinks" => false}
                 / admin権限がある場合のみ表示
                 - if current_user.admin?
-                    li.nav-item = link_to 'ユーザー一覧', admin_users_path, class: 'nav-link'
-                li.nav-item = link_to 'ログアウト', logout_path, method: :delete, class: 'nav-link'
+                    li.nav-item = link_to 'ユーザー一覧', admin_users_path, 
+                                class: 'nav-link'
+                li.nav-item = link_to 'ログアウト', logout_path, method: :delete, 
+                                class: 'nav-link'
             - else
                 / ログイン前の表示
-                li.nav-item = link_to 'ログイン', login_path, class: 'nav-link'
+                li.nav-item = link_to 'ログイン', login_path, 
+                                class: 'nav-link'
 
     / ナビバー以降の画面
     / .container-fluid

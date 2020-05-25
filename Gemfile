@@ -88,3 +88,6 @@ gem 'ransack'
 
 # jQuery
 gem 'jquery-rails'
+
+# font-awesome
+gem 'font-awesome-sass'
