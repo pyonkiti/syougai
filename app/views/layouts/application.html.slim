@@ -9,7 +9,8 @@ html
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
   body
     /* ナビバー（左側） */
-    .app-title.navbar.navbar-expand-md.navbar-light.bg-light
+    / .app-title.navbar.navbar-expand-md.navbar-light.bg-light
+    .app-title.navbar.top.navbar-expand-lg.navbar-light.bg-light
         .navbar-brand 障害情報
     
         / ナビバー（右側）
@@ -32,10 +33,17 @@ html
                                 class: 'nav-link'
 
     / ナビバー以降の画面
-    / .container-fluid
-    .container
-        / flashに変数がセットされていれば画面表示
-        - if flash.notice.present?
-            .alert.alert-success= flash.notice
-        = yield
+    / .container
+    /     / flashに変数がセットされていれば画面表示
+    /     - if flash.notice.present?
+    /         .alert.alert-success= flash.notice
+    /     = yield
     
+    .container-fluid.row
+        .col-sm-1
+        .col-sm-10
+            / flashに変数がセットされていれば画面表示
+            - if flash.notice.present?
+                .alert.alert-success= flash.notice
+            = yield
+        .col-sm-1

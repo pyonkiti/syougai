@@ -174,9 +174,9 @@ table.table.table-hover
                 -        else ''
                 td = wjigyou_kbn
 
-                td = truncate(task.kijyou, length: 10)
-                td = truncate(task.naiyou, length: 10)
-                td = truncate(task.jisyou, length: 10)
+                td = truncate(task.kijyou, length: 8)
+                td = truncate(task.naiyou, length: 8)
+                td = truncate(task.jisyou, length: 8)
 
                 / td = task.renraku_d
                 - unless task.renraku_d.nil?
