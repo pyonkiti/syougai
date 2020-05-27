@@ -86,12 +86,19 @@ test:
 #   production:
 #     url: <%= ENV['DATABASE_URL'] %>
 #
+
+# HEROKUの場合
+production:
+  url: <%= ENV['DATABASE_URL'] %>
+
+# ローカルの場合
 production:
   <<: *default
   database: syougai_production
-  username: syougai
+  username: vagrant
+  password: vagrant
+  # username: syougai
   # password: <%= ENV['SYOUGAI_DATABASE_PASSWORD'] %>
-  # username: vagrant
-  # password: vagrant
+
 
 #
