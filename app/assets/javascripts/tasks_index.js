@@ -183,11 +183,9 @@ $(document).ready( function(){
 //         alert("自治体検索ボタン");              //ok
 //     })
 // })
-
 // 下記２行はどっちでも同じではない
 // atterは触れてしまうので×　propを利用する事
 //$("#task_idx_enduser").attr('readonly', true);
 //$("#task_idx_enduser").prop('disabled', true);
-
 // alert("自治体");                         //ok
 // $("h1").text("jQuery稼働テスト(稼働中)");   //OK
