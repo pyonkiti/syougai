@@ -90,8 +90,8 @@ production:
   <<: *default
   database: syougai_production
   username: syougai
-  password: <%= ENV['SYOUGAI_DATABASE_PASSWORD'] %>
-  username: vagrant
-  password: vagrant
+  # password: <%= ENV['SYOUGAI_DATABASE_PASSWORD'] %>
+  # username: vagrant
+  # password: vagrant
 
 #
