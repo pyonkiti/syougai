@@ -92,13 +92,13 @@ production:
   url: <%= ENV['DATABASE_URL'] %>
 
 # ローカルの場合
-production:
-  <<: *default
-  database: syougai_production
-  username: vagrant
-  password: vagrant
-  # username: syougai
-  # password: <%= ENV['SYOUGAI_DATABASE_PASSWORD'] %>
+# production:
+#   <<: *default
+#   database: syougai_production
+#   username: vagrant
+#   password: vagrant
+#   # username: syougai
+#   # password: <%= ENV['SYOUGAI_DATABASE_PASSWORD'] %>
 
 
 #
