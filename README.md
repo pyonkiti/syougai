@@ -1,28 +1,25 @@
-# README
+## ■ 障害DB
 
-障害情報登録のプロトタイプ版
-開発期間 : 2020/4 ～
+環境IoTプロジェクト本部の障害情報を管理するシステム
+
+https://nsk-syougai-info.herokuapp.com/
 
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
 
-Things you may want to cover:
+##### 開発環境
 
-* Ruby version
+- Ubuntu 16.04.5 LTS （Windows10 + Vagrant）
 
-* System dependencies
+- Ruby 2.5.1p57
 
-* Configuration
+- Rails 5.2.4.2
 
-* Database creation
+- PostgreSQL 9.5.19
 
-* Database initialization
 
-* How to run the test suite
 
-* Services (job queues, cache servers, search engines, etc.)
+##### 本番環境
 
-* Deployment instructions
+- Heroku （Freeプラン）
 
-* ...
+
