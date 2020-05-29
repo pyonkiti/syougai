@@ -64,7 +64,6 @@
                     {include_blank: true}, 
                     class: 'selectpicker form-control', 
                     id: 'task_enduser_id'
- 
 
 
     / 元請け
@@ -88,30 +87,30 @@
             = f.label :jigyou_kbn, class: 'form-check-label'
         .col-sm-2
             = f.label :jigyou_kbn, '上水', class: 'control-label', 
-                    for: 'task_dantai_kbn_1'
+                    for: 'task_jigyou_kbn_1'
             = f.radio_button :jigyou_kbn, 1, 
                     checked: true, 
-                    id: 'task_dantai_kbn_1'
+                    id: 'task_jigyou_kbn_1'
         .col-sm-2
             = f.label :jigyou_kbn, '下水', class: 'control-label', 
-                    for: 'task_dantai_kbn_2'
+                    for: 'task_jigyou_kbn_2'
             = f.radio_button :jigyou_kbn, 2, 
-                    id: 'task_dantai_kbn_2'
+                    id: 'task_jigyou_kbn_2'
         .col-sm-2
             = f.label :jigyou_kbn, '雨水', class: 'control-label', 
-                    for: 'task_dantai_kbn_3'
+                    for: 'task_jigyou_kbn_3'
             = f.radio_button :jigyou_kbn, 3, 
-                    id: 'task_dantai_kbn_3'
+                    id: 'task_jigyou_kbn_3'
         .col-sm-2
             = f.label :jigyou_kbn, 'アンダーパス', class: 'control-label', 
-                    for: 'task_dantai_kbn_4'
+                    for: 'task_jigyou_kbn_4'
             = f.radio_button :jigyou_kbn, 4, 
-                    id: 'task_dantai_kbn_4'
+                    id: 'task_jigyou_kbn_4'
         .col-sm-2
             = f.label :jigyou_kbn, 'その他', class: 'control-label', 
-                    for: 'task_dantai_kbn_5'
+                    for: 'task_jigyou_kbn_5'
             = f.radio_button :jigyou_kbn, 5, 
-                    id: 'task_dantai_kbn_5'
+                    id: 'task_jigyou_kbn_5'
 
     / 機場名
     .form-group.row
