@@ -18,19 +18,23 @@ class TasksController < ApplicationController
     render json: @enduser_mkn
   end
 
+#   def aaa
+#     @abc = params[:q]
+#     # binding.pry
+#   end
+
   def index
 
     # current_user（現在ログインしているuserのid）に紐づくTaskテーブルを検索
-    # ransack未使用
     # @tasks = current_user.tasks.order(created_at: :desc)
     
     # Inner Joinしない場合の記述
     # @q = current_user.tasks.ransack(params[:q])
 
     # ransackで検索
-    # 2テーブルをInner Joinしている
-    @q = current_user.tasks.joins(:enduser, :motouke, :userkey)
-                .select("tasks.*, endusers.enduser_nm, motoukes.motouke_nm, userkeys.userkey_cd, userkeys.userkey_nm")
+    # Inner Joinしている
+    @q = Task.joins(:enduser, :motouke, :userkey, :user)
+                .select("tasks.*, endusers.enduser_nm, motoukes.motouke_nm, userkeys.userkey_cd, userkeys.userkey_nm, users.name, users.name_id")
                 .where(del_flg: 0)
                 .order({renraku_d: :desc}, {renraku_t: :desc}, {id: :desc})
                 .ransack(params[:q])
@@ -48,7 +52,7 @@ class TasksController < ApplicationController
 
   def create
     
-    @task = current_user.tasks.new(task_params)
+    @task = Task.new(task_params)
     if @task.save
         redirect_to @task, notice: "障害情報を登録しました。"
     else
@@ -98,6 +102,7 @@ class TasksController < ApplicationController
         :taiou_cd, 
         :taiou_sub,
         :del_flg,
+        :user_id,
         :enduser_id,
         :motouke_id,
         :userkey_id
@@ -106,7 +111,7 @@ class TasksController < ApplicationController
 
   # セッションIDに該当するTaskを読み込む
   def set_task
-    @task = current_user.tasks.find(params[:id])
+    @task = Task.find(params[:id])
   end
 
 end

@@ -6,7 +6,22 @@ class Admin::UsersController < ApplicationController
 
 
     def index
-        @users = User.all
+        @users = User.all.order(:id)
+
+        # UserテーブルをCSV出力する
+        respond_to do |f|
+            f.html
+            # UTF-8で出力
+            f.csv { send_data @users.generate_csv, filename: 'user_utf8.csv' }
+            # S-JISで出力
+            #f.csv { send_data @users.generate_csv.encode(Encoding::Windows_31J, undef: :replace, row_sep: "\r\n", force_quotes: true), filename: 'user_sjis.csv' }
+        end
+    end
+
+    # CSVデータをUserにインポート
+    def import
+        User.import(params[:file])
+        redirect_to admin_users_url, notice: "ユーザーを追加しました"
     end
 
     def show
@@ -50,6 +65,7 @@ class Admin::UsersController < ApplicationController
 
   def user_params
     params.require(:user).permit(
+        :syain_id,
         :name,
         :name_id,
         :admin,

@@ -6,14 +6,19 @@
 
 = form_with model: [:admin, @user], local:true do |f|
 
+    / 社員コード
+    .form-group
+        = f.label :syain_id, '社員コード'
+        = f.text_field :syain_id, class: 'form-control'
+
     / 名前
     .form-group
         = f.label :name, '名前'
         = f.text_field :name, class: 'form-control'
 
-    / 名前ID
+    / ログインID
     .form-group
-        = f.label :name_id, 'ID'
+        = f.label :name_id, 'ログインID'
         = f.text_field :name_id, class: 'form-control'
 
     / 権限管理

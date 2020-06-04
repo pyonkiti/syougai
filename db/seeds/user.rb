@@ -1,16 +1,18 @@
 # Userテーブルのテストデータを作成
 User.create!(
     name:            '管理者',
-    name_id:         'admin',
-    password:        'admin',
-    password_confirmation: 'admin',
+    syain_id:        '0',
+    name_id:         'kankyou',
+    password:        'nsk_syougaidb',
+    password_confirmation: 'nsk_syougaidb',
     admin:           'true'
 )
 
 User.create!(
-    name:            'ユーザー',
-    name_id:         'user',
-    password:        'user',
-    password_confirmation: 'user',
+    name:            'テストユーザー',
+    syain_id:        '0',
+    name_id:         'test_admin',
+    password:        'test_admin',
+    password_confirmation: 'test_admin',
     admin:           'false'
 )

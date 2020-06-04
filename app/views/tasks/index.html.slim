@@ -137,6 +137,13 @@ br
         data: {"turbolinks" => false}
         i class='fas fa-edit'  新規登録
 
+/ tttttttttttttttttttttttttttttttttttttttt
+/ = search_form_for @q, url: aaa_tasks_path, html: { method: :post } do |f|
+/     = f.select( :sorts, { '並び替え1': 'id desc', '並び替え2': 'id asc' }, { selected: params[:qq] }, { onchange: 'this.form.submit()'} )
+
+/     = f.submit '完了'
+/ tttttttttttttttttttttttttttttttttttttttt
+
 
 / 明細部
 .mb-3
@@ -144,16 +151,15 @@ table.table.table-hover
     thead.thead-default
         tr
             th = Task.human_attribute_name(:id)
-            th = Task.human_attribute_name(:enduser_id)
-            th = Task.human_attribute_name(:motouke_id)
-            th = Task.human_attribute_name(:jigyou_kbn)
+            th = sort_link(@q, :enduser_id)
+            th = sort_link(@q, :motouke_id)
+            th = sort_link(@q, :jigyou_kbn)
             th = Task.human_attribute_name(:kijyou)
             th = Task.human_attribute_name(:naiyou)
             th = Task.human_attribute_name(:jisyou)
-            th = Task.human_attribute_name(:renraku_d)
-            th = Task.human_attribute_name(:sagyou_d)
-            th = Task.human_attribute_name(:taiou_cd)
-
+            th = sort_link(@q, :renraku_d)
+            th = sort_link(@q, :sagyou_d)
+            th = sort_link(@q, :taiou_cd)
             th
     tbody
         - @tasks.each do |task|

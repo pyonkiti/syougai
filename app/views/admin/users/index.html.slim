@@ -5,6 +5,8 @@ h2 ユーザー一覧
 table.table.table-hover
     thead.thead-default
         tr
+            th = User.human_attribute_name(:id)
+            th = User.human_attribute_name(:syain_id)
             th = User.human_attribute_name(:name)
             th = User.human_attribute_name(:name_id)
             th = User.human_attribute_name(:admin)
@@ -12,8 +14,15 @@ table.table.table-hover
     tbody
         - @users.each do |user|
             tr
+                td = user.id
+                td = user.syain_id
                 td = link_to user.name, [:admin, user]
                 td = user.name_id
                 td = user.admin? ? 'あり' : 'なし'
                 td = link_to '編集', edit_admin_user_path(user), class: 'btn btn-primary mr-3'
                     
+/ = link_to 'エクスポート', admin_users_path(format: :csv), class: 'btn btn-primary mb-3'
+
+/ = form_tag import_admin_users_path, multipart: true, class: 'mb-3' do
+/     = file_field_tag :file
+/     = submit_tag "インポート", class: 'btn btn-primary'

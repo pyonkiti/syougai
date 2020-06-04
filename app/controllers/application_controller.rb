@@ -9,6 +9,8 @@ class ApplicationController < ActionController::Base
     # セッションIDをキーにしてUserを読み込む
     def current_user
         @current_user ||= User.find_by(id: session[:user_id]) if session[:user_id]
+
+        # binding.pry
     end
 
     # セッションIDがnilの場合、login画面を表示

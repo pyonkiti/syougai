@@ -24,7 +24,7 @@ Task.create!(
     teishi:         '20.0',
     project_cd:     '45-99-001',
     taiou_cd:       '123',
-    taiou_sub:      '1',
+    taiou_sub:      '営業Aさん',
     del_flg:        '0',
     user_id:        '1',
     enduser_id:     '1',

@@ -204,8 +204,8 @@
         .col-sm-2
             = f.label :taiou_sub, class: 'control-label'
         .col-sm-4
-            = f.number_field :taiou_sub, 
-                    placeholder: 'サブで作業した社員コード', 
+            = f.text_field :taiou_sub, 
+                    placeholder: 'サブで作業した社員名', 
                     class: 'form-control', 
                     id: 'task_taiou_sub'
 
@@ -321,7 +321,13 @@
                     class: 'form-control', 
                     id: 'task_userkey_id'
 
-
+    / / ログインユーザー（隠し項目）
+    .form-group.row
+        .col-sm-10
+            = f.hidden_field :user_id,
+                    value: current_user.id,
+                    class: 'form-control bg-warning', 
+                    id: 'task_user_id'
 
     / 削除フラグ
     / .form-textはヘルプテキスト（注意書き）
@@ -336,10 +342,6 @@
         .col-sm-9
             span.form-text.text-muted
             | ※ 削除する場合は、チェックを付けて更新して下さい。削除フラグを付けると、再表示はできなくなりますが、データは削除されません。
-
-
-
-
 
     / 登録ボタン
     br

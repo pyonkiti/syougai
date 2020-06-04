@@ -7,7 +7,9 @@ Rails.application.routes.draw do
 
     # ユーザー登録
     namespace :admin do
-        resources :users
+        resources :users do
+            post :import, on: :collection
+        end
     end
 
     # 障害情報
