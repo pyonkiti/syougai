@@ -8,8 +8,10 @@ html
     = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
   body
-    /* ナビバー（左側） */
+    / ナビバー（左側） /
     / .app-title.navbar.navbar-expand-md.navbar-light.bg-light
+    / navbar-expand : 基本ディスクトップで見て貰う場合はlgでOK（画面をどこまでちじめると表示形態を変えるかの設定）
+    /  navbar-light.bg-light : 色の指定
     .app-title.navbar.top.navbar-expand-lg.navbar-light.bg-light
         .navbar-brand 障害情報
     
@@ -17,14 +19,27 @@ html
         ul.navbar-nav.ml-auto
             / セッションIDがセットされているか（ログイン済か）の判断（自作ヘルパー）
             - if current_user
+                
+
                 / ログイン後の表示
                 li.nav-item = link_to '障害情報一覧', tasks_path, 
                                 class: 'nav-link', 
                                 data: {"turbolinks" => false}
                 / admin権限がある場合のみ表示
                 - if current_user.admin?
+                    / ドロップダウンリストに含める事とした
                     li.nav-item = link_to 'ユーザー一覧', admin_users_path, 
                                 class: 'nav-link'
+
+                    / li.nav-item.dropdown
+                    /     a#navbarDropdown.nav-link.dropdown-toggle[href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"]
+                    /         |  マスタメンテナンス
+                    /     .dropdown-menu[aria-labelledby="navbarDropdown"]
+                    /         = link_to '元請け', motoukes_path, class: 'dropdown-item'
+                    /         = link_to 'エンドユーザー', motoukes_path, class: 'dropdown-item'
+                    /         = link_to 'エンドユーザーキー', motoukes_path, class: 'dropdown-item'
+                    /         = link_to 'ユーザー一覧', admin_users_path, class: 'dropdown-item'
+                                
                 li.nav-item = link_to 'ログアウト', logout_path, method: :delete, 
                                 class: 'nav-link'
             - else

@@ -40,7 +40,7 @@ ja:
         del_flg: 削除
         created_at: 登録日時
         updated_at: 更新日時
-        user_id: ログインユーザー
+        user_id: 更新ユーザー
         enduser_id: エンドユーザ
         motouke_id: 元請け
         userkey_id: ユーザーキー
@@ -54,6 +54,11 @@ ja:
         admin: 管理者権限
         password: パスワード
         password_confirmation: パスワード（確認）
+        created_at: 登録日時
+        updated_at: 更新日時
+      motouke:
+        motouke_cd: 元請けコード
+        motouke_nm: 元請け名
         created_at: 登録日時
         updated_at: 更新日時
   date:

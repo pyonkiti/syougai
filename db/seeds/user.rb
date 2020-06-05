@@ -12,7 +12,7 @@ User.create!(
     name:            'テストユーザー',
     syain_id:        '0',
     name_id:         'test_admin',
-    password:        'test_admin',
+    password:        'nsk_admin',
     password_confirmation: 'test_admin',
-    admin:           'false'
+    admin:           'true'
 )
