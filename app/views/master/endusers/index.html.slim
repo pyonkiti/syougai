@@ -1,0 +1,31 @@
+h2 エンドユーザー一覧
+br
+= link_to new_master_enduser_path, 
+            class: 'btn btn-primary'
+            i class='fas fa-edit'  新規登録
+
+.mb-3
+table.table.table-hover
+    thead.thead-default
+        tr
+            th = Enduser.human_attribute_name(:id)
+            th = Enduser.human_attribute_name(:enduser_cd)
+            th = Enduser.human_attribute_name(:todofuken)
+            th = Enduser.human_attribute_name(:enduser_nm)
+            th 
+            th
+    tbody
+        - @endusers.each do |enduser|
+            tr
+                td = enduser.id
+                td = enduser.enduser_cd
+                td = enduser.todofuken
+                td = link_to enduser.enduser_nm, [:master, enduser]
+                td = link_to edit_master_enduser_path(enduser), 
+                            class: 'btn btn-primary mr-2' 
+                            i class = 'far fa-edit'  編集
+                td = link_to [:master, enduser], 
+                            method: :delete, 
+                            class: 'btn btn-danger mr-2', 
+                            data: { confirm: '削除してよろしいですか?' }
+                            i class = 'fas fa-trash-alt'  削除

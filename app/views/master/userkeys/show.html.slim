@@ -1,0 +1,23 @@
+h2 詳細
+
+.nav.justify-content-end
+    = link_to '一覧', master_userkeys_path, class: 'nav-link'
+
+table.table.table-hover
+    tbody
+        tr
+            th = Userkey.human_attribute_name(:id)
+            td = @userkey.id
+        tr
+            th = Userkey.human_attribute_name(:userkey_cd)
+            td = @userkey.userkey_cd
+        tr
+            th = Userkey.human_attribute_name(:userkey_nm)
+            td = @userkey.userkey_nm
+
+        tr
+            th = Userkey.human_attribute_name(:created_at)
+            td = l @userkey.created_at, format: :default 
+        tr
+            th = Userkey.human_attribute_name(:updated_at)
+            td = l @userkey.updated_at, format: :default 

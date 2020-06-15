@@ -31,10 +31,15 @@
     .form-group
         = f.label :password, 'パスワード'
         = f.password_field :password, class: 'form-control'
+        span.form-text.text-danger
+        | ※ 半角英字・数字を組み合わせた8桁以上が必須です。
+
 
     / パスワード（確認用）
     .form-group
         = f.label :password_confirmation, 'パスワード（確認）'
         = f.password_field :password_confirmation, class: 'form-control'
 
-    = f.submit '登録する', class: 'btn btn-primary'
+    = f.button type: 'submit', 
+                    class: 'btn btn-primary'
+                    i class = 'far fa-edit'  登録

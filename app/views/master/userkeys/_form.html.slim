@@ -1,0 +1,34 @@
+/ エラーメッセージを表示
+- if userkey.errors.present?
+    ul#error_explanation
+        - userkey.errors.full_messages.each do |msg|
+            li = msg
+
+= form_with model: [:master, @userkey], local: true do |f|
+
+    / ユーザーキーコード
+    .form-group.row
+        .col-sm-2
+            = f.label :userkey_cd, class: 'control-label'
+        .col-sm-10
+            = f.text_field :userkey_cd,
+                    placeholder: 'ユーザーキー', 
+                    class: 'form-control', 
+                    id: 'userkey_userkey_cd'
+
+    / ユーザーキー名
+    .form-group.row
+        .col-sm-2
+            = f.label :userkey_nm, class: 'control-label'
+        .col-sm-10
+            = f.text_field :userkey_nm,
+                    placeholder: 'ユーザーキー名', 
+                    class: 'form-control', 
+                    id: 'userkey_userkey_nm'
+
+    / 登録ボタン
+    br
+     = f.button type: 'submit', 
+                    class: 'btn btn-primary'
+                    i class = 'far fa-edit'  登録
+    br

@@ -1,0 +1,30 @@
+h2 ユーザーキー一覧
+br
+
+= link_to new_master_userkey_path,
+            class: 'btn btn-primary'
+            i class = 'fas fa-edit'  新規登録
+
+.mb-3
+table.table.table-hover
+    thead.thead-default
+        tr
+            th = Userkey.human_attribute_name(:id)
+            th = Userkey.human_attribute_name(:userkey_cd)
+            th = Userkey.human_attribute_name(:userkey_nm)
+            th
+            th
+    tbody
+        -@userkeys.each do |userkey|
+            tr
+                td = userkey.id
+                td = userkey.userkey_cd
+                td = link_to userkey.userkey_nm, [:master, userkey]
+                td = link_to edit_master_userkey_path(userkey),
+                            class: 'btn btn-primary mr-2'
+                            i class = 'far fa-edit'  編集
+                td = link_to [:master, userkey],
+                            method: :delete,
+                            class: 'btn btn-danger mr-2',
+                            data: { confirm: '削除してよろしいですか?'}
+                            i class = 'fas fa-trash-alt'  削除

@@ -3,11 +3,14 @@ class User < ApplicationRecord
     # passwordをハッシュ化する
     has_secure_password
 
-    validates :name, presence: true                         # 名前
-    validates :name_id, presence: true, uniqueness: true    # ログインID
-
     # 親子関係
     has_many :tasks
+
+    validates :name, presence: true                                 # 名前
+    validates :name_id, presence: true, uniqueness: true            # ログインID
+
+    VALD_PASSWORD = /\A(?=.*?[a-z])(?=.*?\d)[a-z\d]{8,50}+\z/i
+    validates :password, format: { with: VALD_PASSWORD }            # パスワード 半角英数字8文字以上20文字以下
 
     # Userテーブルの出力項目
     def self.csv_attributes

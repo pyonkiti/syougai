@@ -1,7 +1,18 @@
                    Prefix Verb   URI Pattern                                                                              Controller#Action
+          master_motoukes GET    /master/motoukes(.:format)                                                               master/motoukes#index
+                          POST   /master/motoukes(.:format)                                                               master/motoukes#create
+       new_master_motouke GET    /master/motoukes/new(.:format)                                                           master/motoukes#new
+
+      edit_master_motouke GET    /master/motoukes/:id/edit(.:format)                                                      master/motoukes#edit
+           master_motouke GET    /master/motoukes/:id(.:format)                                                           master/motoukes#show
+           
+                          PATCH  /master/motoukes/:id(.:format)                                                           master/motoukes#update
+                          PUT    /master/motoukes/:id(.:format)                                                           master/motoukes#update
+                          DELETE /master/motoukes/:id(.:format)                                                           master/motoukes#destroy
                     login GET    /login(.:format)                                                                         sessions#new
                           POST   /login(.:format)                                                                         sessions#create
                    logout DELETE /logout(.:format)                                                                        sessions#destroy
+                     root GET    /                                                                                        tasks#index
        import_admin_users POST   /admin/users/import(.:format)                                                            admin/users#import
               admin_users GET    /admin/users(.:format)                                                                   admin/users#index
                           POST   /admin/users(.:format)                                                                   admin/users#create
@@ -11,7 +22,6 @@
                           PATCH  /admin/users/:id(.:format)                                                               admin/users#update
                           PUT    /admin/users/:id(.:format)                                                               admin/users#update
                           DELETE /admin/users/:id(.:format)                                                               admin/users#destroy
-                     root GET    /                                                                                        tasks#index
              search_tasks GET    /tasks/search(.:format)                                                                  tasks#search
          search_mkn_tasks GET    /tasks/search_mkn(.:format)                                                              tasks#search_mkn
                     tasks GET    /tasks(.:format)                                                                         tasks#index

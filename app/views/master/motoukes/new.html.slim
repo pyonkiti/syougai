@@ -1,0 +1,40 @@
+h2 新規登録
+
+.nav.justify-content-end
+    = link_to '一覧', master_motoukes_path, class: 'nav-link'
+
+/ エラーメッセージを表示
+- if @motouke.errors.present?
+    ul#error_explanation
+        - @motouke.errors.full_messages.each do |msg|
+            li = msg
+
+= form_with model: [:master, @motouke], local: true do |f|
+
+    / 元請けコード
+    .form-group.row
+        .col-sm-10
+            = f.hidden_field :motouke_cd,
+                    readonly: true,
+                    value: @motouke_max,
+                    class: 'form-control', 
+                    id: 'motouke_motouke_cd'
+                    
+
+    / 元請け名
+    .form-group.row
+        .col-sm-2
+            = f.label :motouke_nm, class: 'control-label'
+        .col-sm-10
+            = f.text_field :motouke_nm,
+                    placeholder: '元請け名', 
+                    class: 'form-control', 
+                    id: 'motouke_naiyou'
+
+    / 登録ボタン
+    br
+     = f.button type: 'submit', 
+                    class: 'btn btn-primary'
+                    i class="far fa-edit"  登録
+    br
+

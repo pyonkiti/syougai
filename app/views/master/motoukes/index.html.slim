@@ -1,0 +1,27 @@
+h2 元請け一覧
+br
+= link_to new_master_motouke_path, 
+            class: 'btn btn-primary'
+            i class='fas fa-edit'  新規登録
+
+.mb-3
+table.table.table-hover
+    thead.thead-default
+        tr
+            th = Motouke.human_attribute_name(:id)
+            th = Motouke.human_attribute_name(:motouke_nm)
+            th
+            th
+    tbody
+        - @motoukes.each do |motouke|
+            tr
+                td = motouke.id
+                td = link_to motouke.motouke_nm, [:master, motouke]
+                td = link_to edit_master_motouke_path(motouke), 
+                            class: 'btn btn-primary mr-2' 
+                            i class = 'far fa-edit'  編集
+                td = link_to [:master, motouke], 
+                            method: :delete, 
+                            class: 'btn btn-danger mr-2', 
+                            data: { confirm: '削除してよろしいですか?' }
+                            i class = 'fas fa-trash-alt'  削除

@@ -15,30 +15,35 @@ html
     .app-title.navbar.top.navbar-expand-lg.navbar-light.bg-light
         .navbar-brand 障害情報
     
+        / tttttttttttttttttttttttttttttttttttttttttt
+        .navbar-text #{current_user.name_id} さん
+
         / ナビバー（右側）
         ul.navbar-nav.ml-auto
             / セッションIDがセットされているか（ログイン済か）の判断（自作ヘルパー）
             - if current_user
+                
                 
 
                 / ログイン後の表示
                 li.nav-item = link_to '障害情報一覧', tasks_path, 
                                 class: 'nav-link', 
                                 data: {"turbolinks" => false}
+                
                 / admin権限がある場合のみ表示
                 - if current_user.admin?
                     / ドロップダウンリストに含める事とした
-                    li.nav-item = link_to 'ユーザー一覧', admin_users_path, 
-                                class: 'nav-link'
+                    / li.nav-item = link_to 'ユーザー一覧', admin_users_path, 
+                    /             class: 'nav-link'
 
-                    / li.nav-item.dropdown
-                    /     a#navbarDropdown.nav-link.dropdown-toggle[href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"]
-                    /         |  マスタメンテナンス
-                    /     .dropdown-menu[aria-labelledby="navbarDropdown"]
-                    /         = link_to '元請け', motoukes_path, class: 'dropdown-item'
-                    /         = link_to 'エンドユーザー', motoukes_path, class: 'dropdown-item'
-                    /         = link_to 'エンドユーザーキー', motoukes_path, class: 'dropdown-item'
-                    /         = link_to 'ユーザー一覧', admin_users_path, class: 'dropdown-item'
+                    li.nav-item.dropdown
+                        a#navbarDropdown.nav-link.dropdown-toggle[href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"]
+                            |  マスタメンテナンス
+                        .dropdown-menu[aria-labelledby="navbarDropdown"]
+                            = link_to 'ログインユーザー', admin_users_path, class: 'dropdown-item'
+                            = link_to '元請け', master_motoukes_path, class: 'dropdown-item'
+                            = link_to 'エンドユーザー', master_endusers_path, class: 'dropdown-item'
+                            = link_to 'ユーザーキー', master_userkeys_path, class: 'dropdown-item'
                                 
                 li.nav-item = link_to 'ログアウト', logout_path, method: :delete, 
                                 class: 'nav-link'

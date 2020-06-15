@@ -8,9 +8,11 @@ ja:
           has_one: "%{record}が存在しているので削除できません"
           has_many: "%{record}が存在しているので削除できません"
     model:
-      task: タスク
+      task: タスク（モデル）
       enduser: エンドユーザー（モデル）
       motouke: 元請け（モデル）
+      userkey: ユーザーキー（モデル）
+      user: ユーザー（モデル）
     attributes:
       task:
         id: ID
@@ -57,8 +59,22 @@ ja:
         created_at: 登録日時
         updated_at: 更新日時
       motouke:
+        id: ID
         motouke_cd: 元請けコード
         motouke_nm: 元請け名
+        created_at: 登録日時
+        updated_at: 更新日時
+      userkey:
+        id: ID
+        userkey_cd: ユーザーキー
+        userkey_nm: ユーザー名
+        created_at: 登録日時
+        updated_at: 更新日時
+      enduser:
+        id: ID
+        enduser_cd: エンドユーザーコード
+        todofuken: 都道府県
+        enduser_nm: エンドユーザー名
         created_at: 登録日時
         updated_at: 更新日時
   date:

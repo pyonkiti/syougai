@@ -45,6 +45,9 @@ group :development, :test do
   
   # FactoryBot
   gem 'factory_bot_rails', '~> 4.11'
+
+  # ER図をPDF出力
+  gem 'rails-erd'
 end
 
 group :development do
@@ -57,6 +60,10 @@ group :development do
 
   # デバック
   gem 'pry-byebug'
+
+  # デバック用
+  gem 'better_errors'
+  gem 'binding_of_caller'
 end
 
 group :test do
@@ -91,3 +98,8 @@ gem 'jquery-rails'
 
 # font-awesome
 gem 'font-awesome-sass'
+
+# Hirb
+gem 'hirb'
+gem 'hirb-unicode'
+

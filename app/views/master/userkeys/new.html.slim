@@ -1,0 +1,5 @@
+h2 新規登録
+.nav.justify-content-end
+    = link_to '一覧', master_userkeys_path, class: 'nav-link'
+
+= render partial: 'form', locals: { userkey: @userkey }

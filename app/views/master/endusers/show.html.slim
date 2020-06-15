@@ -1,0 +1,25 @@
+h2 詳細
+
+.nav.justify-content-end
+    = link_to '一覧', master_endusers_path, class: 'nav-link'
+
+table.table.table-hover
+    tbody
+        tr
+            th = Enduser.human_attribute_name(:id)
+            td = @enduser.id
+        tr
+            th = Enduser.human_attribute_name(:enduser_cd)
+            td = @enduser.enduser_cd
+        tr
+            th = Enduser.human_attribute_name(:todofuken)
+            td = @enduser.todofuken
+        tr
+            th = Enduser.human_attribute_name(:enduser_nm)
+            td = @enduser.enduser_nm
+        tr
+            th = Enduser.human_attribute_name(:created_at)
+            td = l @enduser.created_at, format: :default 
+        tr
+            th = Enduser.human_attribute_name(:updated_at)
+            td = l @enduser.updated_at, format: :default 

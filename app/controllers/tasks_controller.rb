@@ -64,8 +64,11 @@ class TasksController < ApplicationController
   end
 
   def update
-    @task.update!(task_params)
-    redirect_to tasks_url, notice: "障害情報を更新しました。"
+    if @task.update(task_params)
+        redirect_to tasks_url, notice: "障害情報を更新しました。"
+    else
+        render :edit
+    end
   end
 
   def destroy

@@ -1,0 +1,5 @@
+h2 編集
+.nav.justify-content-end
+    = link_to '一覧', master_endusers_path, class: 'nav-link'
+
+= render partial: 'form', locals: { enduser: @enduser }
