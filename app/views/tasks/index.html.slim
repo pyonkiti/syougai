@@ -4,7 +4,6 @@ br
 / ヘッダ部（検索）
 = search_form_for @q, class: 'mb-5' do |f|
 
-
     / 団体区分
     / チェックボックス、ラジオボタンは、基本的にform-groupでは囲まない（form-groupで囲っても正しく表示はされる）
     / .rowをつけると、ラベルとテキスト項目が横に並ぶ
@@ -137,6 +136,9 @@ br
         data: {"turbolinks" => false}
         i class='fas fa-edit'  新規登録
 
+= link_to excel_tasks_path(@tasks, format: :xlsx),
+        class: 'btn btn-info'
+        i class='far fa-file-excel'  Excel出力
 
 / 明細部
 .mb-3

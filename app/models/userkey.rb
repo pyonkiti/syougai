@@ -2,9 +2,6 @@ class Userkey < ApplicationRecord
 
     has_many :tasks
 
-    # テストレベル
-    # validates :userkey_cd, format: { with: /\A[a-zA-Z0-9!-/:-@¥[-`{-~]*\z/ } 
-
     # ユーザーキー入力チェック
     validates :userkey_cd,  presence: true,
                             uniqueness: true,

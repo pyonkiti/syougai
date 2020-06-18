@@ -1,0 +1,97 @@
+# ワークブックを作成
+wb = xlsx_package.workbook
+ 
+# ワークブックにシートを挿入
+wb.add_worksheet(name: "障害情報") do |sheet|
+
+    # スタイルの設定
+    styles = {
+        title: sheet.styles.add_style(font_name: 'メイリオ'),
+        date:  sheet.styles.add_style(font_name: 'Arial', format_code: 'yyyy/mm/dd'),
+        time:  sheet.styles.add_style(font_name: 'Arial', format_code: 'hh:mm:ss')
+    }
+
+    # ヘッダー行
+    header = []
+    header << Task.human_attribute_name(:id)
+    header << Task.human_attribute_name(:dantai_kbn)
+    header << Task.human_attribute_name(:todofuken)
+    header << Task.human_attribute_name(:enduser_id)
+    header << Task.human_attribute_name(:motouke_id)
+    header << Task.human_attribute_name(:jigyou_kbn)
+    header << Task.human_attribute_name(:kijyou)
+    header << Task.human_attribute_name(:naiyou)
+    header << Task.human_attribute_name(:jisyou)
+    header << Task.human_attribute_name(:syochi)
+    header << Task.human_attribute_name(:biko)
+    header << Task.human_attribute_name(:syubetu_kbn)
+    header << Task.human_attribute_name(:hosyou_kbn)
+    header << Task.human_attribute_name(:renraku_d)
+    header << Task.human_attribute_name(:renraku_t)
+    header << Task.human_attribute_name(:syanai)
+    header << Task.human_attribute_name(:genchi_d)
+    header << Task.human_attribute_name(:genchi_t)
+    header << Task.human_attribute_name(:sagyou_d)
+    header << Task.human_attribute_name(:sagyou_t)
+    header << Task.human_attribute_name(:syagai)
+    header << Task.human_attribute_name(:idou)
+    header << Task.human_attribute_name(:teishi)
+    header << Task.human_attribute_name(:project_cd)
+    header << Task.human_attribute_name(:userkey_id)
+    header << Task.human_attribute_name(:taiou_cd)
+    header << Task.human_attribute_name(:taiou_sub)
+    header << Task.human_attribute_name(:del_flg)
+
+
+    sheet.add_row header, style: styles[:title]
+
+    # 明細行
+    @tasks.each do |task|
+        sheet.add_row do |row|
+            row.add_cell(task.id)
+            
+            wdantai_kbn = task.dantai_kbn == 1 ? '自治体' : '民間'
+            row.add_cell(wdantai_kbn)
+
+            row.add_cell(task.todofuken)
+
+            row.add_cell(task.enduser.enduser_nm)
+            row.add_cell(task.motouke.motouke_nm)
+
+            wjigyou_kbn = case task.jigyou_kbn
+                    when 1 then '上水'
+                    when 2 then '下水'
+                    when 3 then '雨水'
+                    when 4 then 'アンダーパス'
+                    when 5 then 'その他'
+                    else ''
+            end
+            row.add_cell(wjigyou_kbn)
+
+            row.add_cell(task.kijyou)
+            row.add_cell(task.naiyou)
+            row.add_cell(task.jisyou)
+            row.add_cell(task.syochi)
+            row.add_cell(task.biko)
+            row.add_cell(task.syubetu_kbn)
+            row.add_cell(task.hosyou_kbn)
+            row.add_cell(task.renraku_d, style: styles[:date])
+            row.add_cell(task.renraku_t, style: styles[:time])
+            row.add_cell(task.syanai)
+            row.add_cell(task.genchi_d, style: styles[:date])
+            row.add_cell(task.genchi_t, style: styles[:time])
+            row.add_cell(task.sagyou_d, style: styles[:date])
+            row.add_cell(task.sagyou_t, style: styles[:time])
+            row.add_cell(task.syagai)
+            row.add_cell(task.idou)
+            row.add_cell(task.teishi)
+            row.add_cell(task.project_cd)
+            row.add_cell(task.userkey.userkey_cd)
+            row.add_cell(task.taiou_cd)
+            row.add_cell(task.taiou_sub)
+
+            wdel_flg = task.del_flg == 0 ? nil : '削除'
+            row.add_cell(wdel_flg)
+        end
+    end
+end

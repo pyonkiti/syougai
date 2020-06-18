@@ -2,6 +2,19 @@ class TasksController < ApplicationController
 
   before_action :set_task, only: [:show, :edit, :update, :destroy]
 
+  # Excel出力
+  def excel
+
+    @tasks = Task.joins(:enduser, :motouke, :userkey, :user)
+                .select("tasks.*, endusers.enduser_nm, motoukes.motouke_nm, userkeys.userkey_cd, userkeys.userkey_nm, users.name, users.name_id")
+                .where(del_flg: 0).order(id: :asc)
+    respond_to do |format|
+      format.xlsx do
+        response.headers['Content-Disposition'] = 'attachment; filename="障害情報.xlsx"'
+      end
+    end
+  end
+
   # 自治体でセレクトボックスが選択された時
   def search
 

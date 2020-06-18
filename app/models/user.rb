@@ -6,11 +6,11 @@ class User < ApplicationRecord
     # 親子関係
     has_many :tasks
 
-    validates :name, presence: true                                 # 名前
+    validates :name,    presence: true                              # 名前
     validates :name_id, presence: true, uniqueness: true            # ログインID
 
-    VALD_PASSWORD = /\A(?=.*?[a-z])(?=.*?\d)[a-z\d]{8,50}+\z/i
-    validates :password, format: { with: VALD_PASSWORD }            # パスワード 半角英数字8文字以上20文字以下
+    VALD_PASSWORD = /\A(?=.*?[a-z])(?=.*?\d)[a-z\d]{6,50}+\z/i
+    validates :password, format: { with: VALD_PASSWORD }            # パスワード 半角英数字6文字以上50文字以下
 
     # Userテーブルの出力項目
     def self.csv_attributes

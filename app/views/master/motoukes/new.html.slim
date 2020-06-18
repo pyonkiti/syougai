@@ -1,13 +1,13 @@
 h2 新規登録
 
-.nav.justify-content-end
-    = link_to '一覧', master_motoukes_path, class: 'nav-link'
-
 / エラーメッセージを表示
 - if @motouke.errors.present?
-    ul#error_explanation
+    ul#error_explanation.alert.alert-danger
         - @motouke.errors.full_messages.each do |msg|
             li = msg
+
+.nav.justify-content-end
+    = link_to '一覧', master_motoukes_path, class: 'nav-link'
 
 = form_with model: [:master, @motouke], local: true do |f|
 

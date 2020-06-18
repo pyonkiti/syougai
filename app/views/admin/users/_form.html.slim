@@ -1,6 +1,7 @@
 / エラーメッセージを表示
 - if user.errors.present?
-    ul#error_explanation
+    / .alert.alert-dangerを付けるとエラーメッセージが赤で囲まれる
+    ul#error_explanation.alert.alert-danger
         - user.errors.full_messages.each do |msg|
             li = msg
 
@@ -32,7 +33,7 @@
         = f.label :password, 'パスワード'
         = f.password_field :password, class: 'form-control'
         span.form-text.text-danger
-        | ※ 半角英字・数字を組み合わせた8桁以上が必須です。
+        | ※ 半角英字・数字を組み合わせた6桁以上が必須です。
 
 
     / パスワード（確認用）

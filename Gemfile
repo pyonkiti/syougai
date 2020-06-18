@@ -85,7 +85,7 @@ gem 'html2slim'
 gem 'bootstrap'
 gem 'bootstrap-datetimepicker-rails'
 
-gem 'momentjs-rails'              # 日付入力（未適用）
+# gem 'momentjs-rails'              # 日付入力（未適用）
 
 # パスワードのハッシュ化
 gem 'bcrypt', '~> 3.1.7'
@@ -103,3 +103,7 @@ gem 'font-awesome-sass'
 gem 'hirb'
 gem 'hirb-unicode'
 
+# Excel出力
+gem 'rubyzip'
+gem 'axlsx'
+gem 'axlsx_rails'

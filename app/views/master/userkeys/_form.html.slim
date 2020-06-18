@@ -1,6 +1,6 @@
 / エラーメッセージを表示
 - if userkey.errors.present?
-    ul#error_explanation
+    ul#error_explanation.alert.alert-danger
         - userkey.errors.full_messages.each do |msg|
             li = msg
 

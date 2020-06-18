@@ -1,11 +1,10 @@
 / エラーメッセージを表示
 - if motouke.errors.present?
-    ul#error_explanation
+    ul#error_explanation.alert.alert-danger
         - motouke.errors.full_messages.each do |msg|
             li = msg
 
 = form_with model: [:master, motouke], local: true do |f|
-
    
     / 元請けコード
     .form-group.row

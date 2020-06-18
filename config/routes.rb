@@ -30,6 +30,7 @@ Rails.application.routes.draw do
         collection do
             get 'search'
             get 'search_mkn'
+            get 'excel'
         end
     end
 
