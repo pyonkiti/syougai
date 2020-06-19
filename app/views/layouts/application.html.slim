@@ -38,15 +38,12 @@ html
 
                     li.nav-item.dropdown
                         a#navbarDropdown.nav-link.dropdown-toggle[href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"]
-                            |  マスタメンテナンス
+                            |  マスタメンテ
                         .dropdown-menu[aria-labelledby="navbarDropdown"]
                             = link_to 'ログインユーザー', admin_users_path, class: 'dropdown-item'
-                            / 後で復活させる
-                            / TTTTTTTTTTTTTTTTTTTTTTTTTTTT
-                            / = link_to '元請け', master_motoukes_path, class: 'dropdown-item'
-                            / = link_to 'エンドユーザー', master_endusers_path, class: 'dropdown-item'
-                            / = link_to 'ユーザーキー', master_userkeys_path, class: 'dropdown-item'
-                            / TTTTTTTTTTTTTTTTTTTTTTTTTTTT
+                            = link_to '元請け', master_motoukes_path, class: 'dropdown-item'
+                            = link_to 'エンドユーザー', master_endusers_path, class: 'dropdown-item'
+                            = link_to 'ユーザーキー', master_userkeys_path, class: 'dropdown-item'
                 li.nav-item = link_to 'ログアウト', logout_path, method: :delete, 
                                 class: 'nav-link'
             - else

@@ -107,3 +107,6 @@ gem 'hirb-unicode'
 gem 'rubyzip'
 gem 'axlsx'
 gem 'axlsx_rails'
+
+# ページネーション
+gem 'kaminari'
