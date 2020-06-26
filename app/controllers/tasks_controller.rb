@@ -51,7 +51,7 @@ class TasksController < ApplicationController
                 .where(del_flg: 0)
                 .order({renraku_d: :desc}, {renraku_t: :desc}, {id: :desc})
                 .ransack(params[:q])
-    @tasks = @q.result(distinct: true)
+                @tasks = @q.result(distinct: true).page(params[:page]).per(20)
 
     # binding.pry
   end
@@ -61,6 +61,7 @@ class TasksController < ApplicationController
 
   def new
     @task = Task.new
+    @task.taiou_cd = current_user.syain_id              #ログインユーザーを初期表示
   end
 
   def create

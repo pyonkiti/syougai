@@ -64,6 +64,9 @@ group :development do
   # デバック用
   gem 'better_errors'
   gem 'binding_of_caller'
+
+  # Faker (テストデータ作成)
+  gem 'faker'
 end
 
 group :test do
@@ -106,7 +109,7 @@ gem 'hirb-unicode'
 # Excel出力
 gem 'rubyzip'
 gem 'axlsx'
-gem 'axlsx_rails'
+gem 'caxlsx_rails'
 
 # ページネーション
 gem 'kaminari'

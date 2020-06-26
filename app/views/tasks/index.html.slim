@@ -1,6 +1,19 @@
 h2 障害情報一覧
 br
 
+/ 'data-turbolinks-track': 'reload' をつけると、リロードしないとJSが有効にならない事象が回避できる
+= link_to new_task_path, 
+        class: 'btn btn-primary', 
+        data: {"turbolinks" => false}
+        i class='fas fa-edit'  新規登録
+
+= link_to excel_tasks_path(@tasks, format: :xlsx),
+        class: 'btn btn-info'
+        i class='far fa-file-excel'  Excel出力
+
+br
+br
+
 / ヘッダ部（検索）
 = search_form_for @q, class: 'mb-5' do |f|
 
@@ -128,20 +141,12 @@ br
                 i class="fas fa-undo-alt"  取消
         .col-sm-2
 
-
-
-/ 'data-turbolinks-track': 'reload' をつけると、リロードしないとJSが有効にならない事象が回避できる
-= link_to new_task_path, 
-        class: 'btn btn-primary', 
-        data: {"turbolinks" => false}
-        i class='fas fa-edit'  新規登録
-
-= link_to excel_tasks_path(@tasks, format: :xlsx),
-        class: 'btn btn-info'
-        i class='far fa-file-excel'  Excel出力
-
 / 明細部
 .mb-3
+    / ページネーションの設定
+    = paginate @tasks
+    = page_entries_info @tasks
+br
 table.table.table-hover
     thead.thead-default
         tr

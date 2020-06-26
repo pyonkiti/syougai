@@ -201,6 +201,7 @@
                     placeholder: 'メインで作業した社員コード', 
                     class: 'form-control', 
                     id: 'task_taiou_cd'
+
         .col-sm-2
             = f.label :taiou_sub, class: 'control-label'
         .col-sm-4
@@ -321,7 +322,7 @@
                     class: 'form-control', 
                     id: 'task_userkey_id'
 
-    / / ログインユーザー（隠し項目）
+    / ログインユーザー（隠し項目）
     .form-group.row
         .col-sm-10
             = f.hidden_field :user_id,

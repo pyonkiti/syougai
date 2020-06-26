@@ -9,8 +9,14 @@ class User < ApplicationRecord
     validates :name,    presence: true                              # 名前
     validates :name_id, presence: true, uniqueness: true            # ログインID
 
-    VALD_PASSWORD = /\A(?=.*?[a-z])(?=.*?\d)[a-z\d]{6,50}+\z/i
-    validates :password, format: { with: VALD_PASSWORD }            # パスワード 半角英数字6文字以上50文字以下
+    # 半角英数字6文字以上50文字以下
+    VALD_PASSWORD_1 = /\A(?=.*?[a-z])(?=.*?\d)[a-z\d]{6,50}+\z/i
+
+    # 半角英(記号含む)数字6文字以上50文字以下
+    valid_kigo = "\!\"\#\$\%\&\'\(\)\=\~\|\\\^\-\`\{\@\[\+\*\}\;\:\]\<\>\?\_\,\.\/"
+    VALD_PASSWORD_2 = /\A(?=.*?[a-z#{valid_kigo}])(?=.*?\d)[a-z#{valid_kigo}\d]{6,50}+\z/
+
+    validates :password, format: { with: VALD_PASSWORD_2 }            # パスワード 半角英数字6文字以上50文字以下
 
     # Userテーブルの出力項目
     def self.csv_attributes
