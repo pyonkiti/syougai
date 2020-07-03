@@ -1,7 +1,7 @@
 // ログインユーザー（編集）
 
 // パスワード表示
-// $(document).on('turbolinks:load', function() {
+$(document).on('turbolinks:load', function() {
 $(function(){
     $('#users_passcheck').change(function(){
         if ( $(this).prop('checked') ) {
@@ -11,4 +11,4 @@ $(function(){
         }
     })
 })
-// })
+})
