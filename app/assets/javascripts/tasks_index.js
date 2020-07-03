@@ -97,9 +97,7 @@ $(function(){
         }).done(function(data){
             opt = "<option value=''></option>";
             var ecd = "";
-
             
-
             $(data).each(function(i, enduser){
                 ecd = ("      " + String(enduser.enduser_cd)).slice(-6);
                 opt = opt + "<option value=" + enduser.id + ">" + enduser.enduser_nm + "</option>";
@@ -146,8 +144,6 @@ $(function(){
 
     var kbn2 = $('#task_dantai_kbn_2:checked').val();
     var kbn1 = $('#task_dantai_kbn_1:checked').val();
-
-    
     })
 })
 
@@ -166,9 +162,6 @@ $(document).ready( function(){
 
         // これを付けるとプルダウン表示はOKになるが、初期表示が消える
         // $('#task_todofuken').trigger("change");
-
-
-
     }
     
     // 民間が選択（ラジオボタンの状態が2パターン発生する）
@@ -182,9 +175,7 @@ $(document).ready( function(){
 
     // 民間が選択（ラジオボタンの状態が2パターン発生する）
     if (kbn1 != "1" && kbn2 == "2"){
-
         
-
         // これを付けるとプルダウン表示はOKになるが、初期表示が消える
         // $('#task_dantai_kbn_2').trigger("change");
 

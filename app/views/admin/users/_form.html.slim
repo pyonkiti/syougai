@@ -31,13 +31,13 @@
     / パスワード
     .form-group
         = f.label :password, 'パスワード'
-        = f.password_field :password, class: 'form-control'
+        = f.password_field :password, class: 'form-control', id: 'users_password'
+        <input type = 'checkbox' id = 'users_passcheck'> パスワード表示
         span.form-text.text-danger
-        | ※ 半角英字(記号を含む)・数字を組み合わせた6桁以上が必須です。
+        | 　 ※ 半角英字(記号を含む)・数字を組み合わせた6桁以上が必須です。
         span.form-text.text-danger
-        | 　 （例）「abcde2」「abcd_3」の組み合わせ例はＯＫです。しかし「123456」「abced=」の組み合わせ例はアウトです。
-          　 
-
+        | 　　 （例）「abcde2」「abcd_3」の組み合わせはＯＫでが、「123456」「abced=」の組み合わせはアウトです。
+        
     / パスワード（確認用）
     .form-group
         = f.label :password_confirmation, 'パスワード（確認）'
