@@ -68,6 +68,7 @@ $(function(){
         })
     })
 
+
     // ----------------------------------------------
     // 団体＝自治体で、都道府県が選択された後、Ajax通信で市町村名を連動させる
     // ----------------------------------------------
@@ -85,7 +86,7 @@ $(function(){
             processData: false,               //おまじない
             contentType: false,               //おまじない
             dataType: 'json'                  //データ形式を指定
-
+            
         }).done(function(data){
             get_enuuser_select(data);
         })
@@ -99,30 +100,35 @@ $(function(){
         var kbn1 = $('#task_dantai_kbn_1:checked').val();
         var kbn2 = $('#task_dantai_kbn_2:checked').val();
 
-        // 自治体が選択（ラジオボタンの状態が2パターン発生する）
-        if (kbn1 == "1") {
-            if (kbn2 == "2"){
-                // イベントを意図的に発生させるとajaxが動くため使えない
-                // $('#task_dantai_kbn_2').trigger("change");
-                $("#task_todofuken").prop('disabled', true);            // 都道府県を入力不可にする
-                $('#task_todofuken').val('');
-            } else {
-                // イベントを意図的に発生させる
-                $('#task_dantai_kbn_1').trigger("change");
-                // これを付けるとプルダウン表示はOKになるが、初期表示が消える
-                // $('#task_todofuken').trigger("change");
-            }
-        // 民間が選択
-        } else {
-            if (kbn2 == "2"){
-                // これを付けるとプルダウン表示はOKになるが、初期表示が消える
-                // $('#task_dantai_kbn_2').trigger("change");
-                $("#task_todofuken").prop('disabled', true);
-                $('#task_todofuken').val('');                           //都道府県を初期化
-                // イベントを意図的に発生
-                $('#task_dantai_kbn_2').trigger("change");
-            } else {
-            }
+        // 自治体が選択
+        if (kbn1 == "1" && kbn2 != "2"){
+            // イベントを意図的に発生させる
+            $('#task_dantai_kbn_1').trigger("change");
+
+            // これを付けるとプルダウン表示はOKになるが、初期表示が消える
+            // $('#task_todofuken').trigger("change");
+        }
+        
+        // 民間が選択（ラジオボタンの状態が2パターン発生する）
+        if (kbn1 == "1" && kbn2 == "2"){
+            // イベントを意図的に発生させるとajaxが動くため使えない
+            // $('#task_dantai_kbn_2').trigger("change");
+            
+            $("#task_todofuken").prop('disabled', true);            // 都道府県を入力不可にする
+            $('#task_todofuken').val('');
+        }
+
+        // 民間が選択（ラジオボタンの状態が2パターン発生する）
+        if (kbn1 != "1" && kbn2 == "2"){
+
+            // これを付けるとプルダウン表示はOKになるが、初期表示が消える
+            // $('#task_dantai_kbn_2').trigger("change");
+
+            $("#task_todofuken").prop('disabled', true);
+            $('#task_todofuken').val('');       //都道府県
+
+            // イベントを意図的に発生
+            $('#task_dantai_kbn_2').trigger("change");
         }
     })
 })
