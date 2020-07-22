@@ -33,7 +33,7 @@ $(function() {
         $('#task_todofuken').val('');
         $('#task_enduser_id').val('');
     })
-})
+});
 
 
 $(function(){
@@ -128,5 +128,5 @@ $(function(){
             } else {
             }
         }
-    })
-})
+    });
+});

@@ -25,12 +25,13 @@ class Proc_Tasks
             _search_karam += "#{(@task.userkey_cd).chomp}"
 
             # 事故で実行されないようにコメント
-            # @task.update(search_karam: _search_karam)     
+            @task.update(search_karam: _search_karam)     
             count += 1
         end
         puts "処理が完了しました。更新件数: #{count}"
+        # puts "テスト。更新件数: #{count}"
     end
 end
 
-# Proc_Tasks.convert_tasks
+Proc_Tasks.convert_tasks
 
