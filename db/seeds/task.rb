@@ -58,7 +58,8 @@ end
         user_id:        '1',
         enduser_id:     '1',
         motouke_id:     '1',
-        userkey_id:     '1'
+        userkey_id:     '1',
+        search_karam:   'ああああ'
     )
 end
 
@@ -94,6 +95,8 @@ end
 #     user_id:        '1',
 #     enduser_id:     '1',
 #     motouke_id:     '1',
-#     userkey_id:     '1'
+#     userkey_id:     '1',
+#     search_karam:   'ああああ'
+
 # )
 

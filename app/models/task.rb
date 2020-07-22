@@ -22,5 +22,5 @@ class Task < ApplicationRecord
         errors.add(:enduser, 'カンマを含める事はできません') if enduser&.include?(',')
     end
     
-
+    
 end

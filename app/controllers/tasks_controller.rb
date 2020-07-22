@@ -1,7 +1,7 @@
 class TasksController < ApplicationController
 
   before_action :set_task, only: [:show, :edit, :update, :destroy]
-
+  
   # Excel出力
   def excel
 
@@ -21,7 +21,6 @@ class TasksController < ApplicationController
     @enduser = Enduser.where(todofuken: params[:keyword])
     render json: @enduser
     # binding.pry
-
   end
 
   # 民間でセレクトボックスが選択された時
@@ -31,13 +30,8 @@ class TasksController < ApplicationController
     render json: @enduser_mkn
   end
 
-#   def aaa
-#     @abc = params[:q]
-#     # binding.pry
-#   end
-
   def index
-
+    
     # current_user（現在ログインしているuserのid）に紐づくTaskテーブルを検索
     # @tasks = current_user.tasks.order(created_at: :desc)
     
@@ -52,8 +46,9 @@ class TasksController < ApplicationController
                 .order({renraku_d: :desc}, {renraku_t: :desc}, {id: :desc})
                 .ransack(params[:q])
                 @tasks = @q.result(distinct: true).page(params[:page]).per(20)
-
+    
     # binding.pry
+    # puts "テストindex"
   end
 
   def show
@@ -79,6 +74,7 @@ class TasksController < ApplicationController
 
   def update
     if @task.update(task_params)
+        upd_task
         redirect_to tasks_url, notice: "障害情報を更新しました。"
     else
         render :edit
@@ -122,7 +118,8 @@ class TasksController < ApplicationController
         :user_id,
         :enduser_id,
         :motouke_id,
-        :userkey_id
+        :userkey_id,
+        :search_karam
         )
   end
 
@@ -130,5 +127,27 @@ class TasksController < ApplicationController
   def set_task
     @task = Task.find(params[:id])
   end
+  
+  # 横断検索項目を更新する
+  def upd_task
 
+    @task = Task.joins(:motouke, :enduser, :userkey)
+                .select("tasks.*","endusers.enduser_nm","motoukes.motouke_nm","userkeys.userkey_cd")
+                .find(params[:id])
+
+    _search_karam  = "#{(@task.todofuken).chomp}"     + ","
+    _search_karam += "#{(@task.kijyou).chomp}"        + ","
+    _search_karam += "#{(@task.naiyou).chomp}"        + ","
+    _search_karam += "#{(@task.jisyou).chomp}"        + ","
+    _search_karam += "#{(@task.syochi).chomp}"        + ","
+    _search_karam += "#{(@task.biko).chomp}"          + ","
+    _search_karam += "#{(@task.project_cd).chomp}"    + ","
+    _search_karam += "#{(@task.taiou_cd).to_s.chomp}" + ","
+    _search_karam += "#{(@task.taiou_sub).chomp}"     + ","
+    _search_karam += "#{(@task.enduser_nm).chomp}"    + ","
+    _search_karam += "#{(@task.motouke_nm).chomp}"    + ","
+    _search_karam += "#{(@task.userkey_cd).chomp}"
+
+    @task.update(search_karam: _search_karam)
+  end
 end

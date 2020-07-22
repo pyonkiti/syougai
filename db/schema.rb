@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_18_052340) do
+ActiveRecord::Schema.define(version: 2020_07_15_080552) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -63,14 +63,15 @@ ActiveRecord::Schema.define(version: 2020_05_18_052340) do
     t.bigint "enduser_id", null: false
     t.bigint "motouke_id", null: false
     t.bigint "userkey_id", null: false
+    t.string "search_karam"
     t.index ["enduser_id"], name: "index_tasks_on_enduser_id"
     t.index ["motouke_id"], name: "index_tasks_on_motouke_id"
-    t.index ["userkey_id"], name: "index_tasks_on_userkey_id"
     t.index ["naiyou"], name: "index_tasks_on_naiyou"
     t.index ["renraku_d"], name: "index_tasks_on_renraku_d"
     t.index ["sagyou_d"], name: "index_tasks_on_sagyou_d"
     t.index ["taiou_cd"], name: "index_tasks_on_taiou_cd"
     t.index ["user_id"], name: "index_tasks_on_user_id"
+    t.index ["userkey_id"], name: "index_tasks_on_userkey_id"
   end
 
 #   create_table "userkeys", force: :cascade do |t|
@@ -81,15 +82,15 @@ ActiveRecord::Schema.define(version: 2020_05_18_052340) do
 #     t.index ["userkey_cd"], name: "index_userkeys_on_userkey_cd", unique: true
 #   end
 
-  create_table "users", force: :cascade do |t|
-    t.string "name", null: false
-    t.integer "syain_id", null: false
-    t.string "name_id", null: false
-    t.string "password_digest", null: false
-    t.boolean "admin", default: false, null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["name_id"], name: "index_users_on_name_id", unique: true
-  end
+#   create_table "users", force: :cascade do |t|
+#     t.string "name", null: false
+#     t.integer "syain_id", null: false
+#     t.string "name_id", null: false
+#     t.string "password_digest", null: false
+#     t.boolean "admin", default: false, null: false
+#     t.datetime "created_at", null: false
+#     t.datetime "updated_at", null: false
+#     t.index ["name_id"], name: "index_users_on_name_id", unique: true
+#   end
 
 end

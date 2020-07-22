@@ -6,9 +6,6 @@
 
 = form_with model: task, local: true do |f|
 
-    / p#result1
-
-
     / / 団体区分
     / /.form-group.row
     / / チェックボックス、ラジオボタンは、基本的にform-groupでは囲まない
@@ -345,6 +342,14 @@
         .col-sm-9
             span.form-text.text-muted
             | ※ 削除する場合は、チェックを付けて更新して下さい。削除フラグを付けると、再表示はできなくなりますが、データは削除されません。
+
+    / 横断検索（隠し項目）
+    .form-group.row
+        .col-sm-10
+            = f.hidden_field :search_karam,
+                class: 'form-control', 
+                id: 'task_search_karam'
+
 
     / 登録ボタン
     br

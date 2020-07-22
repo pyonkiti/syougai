@@ -2,13 +2,27 @@
           master_motoukes GET    /master/motoukes(.:format)                                                               master/motoukes#index
                           POST   /master/motoukes(.:format)                                                               master/motoukes#create
        new_master_motouke GET    /master/motoukes/new(.:format)                                                           master/motoukes#new
-
       edit_master_motouke GET    /master/motoukes/:id/edit(.:format)                                                      master/motoukes#edit
            master_motouke GET    /master/motoukes/:id(.:format)                                                           master/motoukes#show
-           
                           PATCH  /master/motoukes/:id(.:format)                                                           master/motoukes#update
                           PUT    /master/motoukes/:id(.:format)                                                           master/motoukes#update
                           DELETE /master/motoukes/:id(.:format)                                                           master/motoukes#destroy
+          master_userkeys GET    /master/userkeys(.:format)                                                               master/userkeys#index
+                          POST   /master/userkeys(.:format)                                                               master/userkeys#create
+       new_master_userkey GET    /master/userkeys/new(.:format)                                                           master/userkeys#new
+      edit_master_userkey GET    /master/userkeys/:id/edit(.:format)                                                      master/userkeys#edit
+           master_userkey GET    /master/userkeys/:id(.:format)                                                           master/userkeys#show
+                          PATCH  /master/userkeys/:id(.:format)                                                           master/userkeys#update
+                          PUT    /master/userkeys/:id(.:format)                                                           master/userkeys#update
+                          DELETE /master/userkeys/:id(.:format)                                                           master/userkeys#destroy
+          master_endusers GET    /master/endusers(.:format)                                                               master/endusers#index
+                          POST   /master/endusers(.:format)                                                               master/endusers#create
+       new_master_enduser GET    /master/endusers/new(.:format)                                                           master/endusers#new
+      edit_master_enduser GET    /master/endusers/:id/edit(.:format)                                                      master/endusers#edit
+           master_enduser GET    /master/endusers/:id(.:format)                                                           master/endusers#show
+                          PATCH  /master/endusers/:id(.:format)                                                           master/endusers#update
+                          PUT    /master/endusers/:id(.:format)                                                           master/endusers#update
+                          DELETE /master/endusers/:id(.:format)                                                           master/endusers#destroy
                     login GET    /login(.:format)                                                                         sessions#new
                           POST   /login(.:format)                                                                         sessions#create
                    logout DELETE /logout(.:format)                                                                        sessions#destroy
@@ -24,6 +38,8 @@
                           DELETE /admin/users/:id(.:format)                                                               admin/users#destroy
              search_tasks GET    /tasks/search(.:format)                                                                  tasks#search
          search_mkn_tasks GET    /tasks/search_mkn(.:format)                                                              tasks#search_mkn
+              excel_tasks GET    /tasks/excel(.:format)                                                                   tasks#excel
+         search_odn_tasks GET    /tasks/search_odn(.:format)                                                              tasks#search_odn
                     tasks GET    /tasks(.:format)                                                                         tasks#index
                           POST   /tasks(.:format)                                                                         tasks#create
                  new_task GET    /tasks/new(.:format)                                                                     tasks#new

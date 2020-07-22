@@ -3,13 +3,13 @@ br
 
 / 'data-turbolinks-track': 'reload' をつけると、リロードしないとJSが有効にならない事象が回避できる
 = link_to new_task_path, 
-        class: 'btn btn-primary', 
-        data: {"turbolinks" => false}
-        i class='fas fa-edit'  新規登録
+            class: 'btn btn-primary', 
+            data: {"turbolinks" => false}
+            i class='fas fa-edit'  新規登録
 
 = link_to excel_tasks_path(@tasks, format: :xlsx),
-        class: 'btn btn-info'
-        i class='far fa-file-excel'  Excel出力
+            class: 'btn btn-info'
+            i class='far fa-file-excel'  Excel出力
 
 br
 br
@@ -38,6 +38,7 @@ br
             = f.radio_button :dantai_kbn_lt, 3,
                      id: 'task_dantai_kbn_3'
 
+    - ary_todofuken = ['北海道','青森県','岩手県','宮城県','秋田県','山形県','福島県','茨城県','栃木県','群馬県','埼玉県','千葉県','東京都','神奈川県','新潟県','富山県','石川県','福井県','山梨県','長野県','岐阜県','静岡県','愛知県','三重県','滋賀県','京都府','大阪府','兵庫県','奈良県','和歌山県','鳥取県','島根県','岡山県','広島県','山口県','徳島県','香川県','愛媛県','高知県','福岡県','佐賀県','長崎県','熊本県','大分県','宮崎県','鹿児島県','沖縄県']
     / 都道府県
     / include_blank: ''でselectで空白が選択可能になる
     .form-group.row
@@ -45,7 +46,7 @@ br
             = f.label '都道府県', class: 'control-label'
         .col-sm-10
             = f.select :todofuken_eq, 
-                    options_for_select(['北海道','青森県','岩手県','宮城県','秋田県','山形県','福島県','茨城県','栃木県','群馬県','埼玉県','千葉県','東京都','神奈川県','新潟県','富山県','石川県','福井県','山梨県','長野県','岐阜県','静岡県','愛知県','三重県','滋賀県','京都府','大阪府','兵庫県','奈良県','和歌山県','鳥取県','島根県','岡山県','広島県','山口県','徳島県','香川県','愛媛県','高知県','福岡県','佐賀県','長崎県','熊本県','大分県','宮崎県','鹿児島県','沖縄県']), 
+                    options_for_select(ary_todofuken), 
                     {include_blank: true}, 
                     class: 'selectpicker form-control', 
                     id: 'task_todofuken'
@@ -72,22 +73,40 @@ br
         .col-sm-10
             = f.select :motouke_id_eq, 
                     Motouke.all.map{ |i| [i.motouke_nm, i.id] }, 
-                    {include_blank: true}, 
+                    {include_blank: true, selected: @val_enduser_id}, 
                     class: 'selectpicker form-control', 
                     id: 'task_motouke_nm'
 
+    / 内容 ※横断検索を追加したため廃止
+    / .form-group.row
+    /     .col-sm-2
+    /         = f.label :naiyou, class: 'col-form-label'
+    /     .col-sm-10
+    /         = f.search_field :naiyou_cont, 
+    /         placeholder: '障害内容', 
+    /         class: 'selectpicker form-control', 
+    /         id: 'task_naiyou'
+    /         span.form-text.text-muted
+    /         | ※ 部分一致検索
 
-    / 内容
+
+    / 横断検索
+    / titleは表示させる内容
+    / _contは、Like %検索対象%
     .form-group.row
         .col-sm-2
-            = f.label :naiyou, class: 'col-form-label'
+            <div id="search_karam_tooltip" title="ツールチップ">
+                = f.label :search_karam, class: 'col-form-label'
+            </div>
         .col-sm-10
-            = f.search_field :naiyou_cont, 
-            placeholder: '障害内容', 
+            = f.search_field :search_karam_cont, 
+            placeholder: '横断検索', 
             class: 'selectpicker form-control', 
-            id: 'task_naiyou'
+            id: 'search_karam'
             span.form-text.text-muted
             | ※ 部分一致検索
+    
+
 
     / 対応者コード 
     .form-group.row
@@ -99,11 +118,26 @@ br
                     class: 'form-control'
 
     / 作業完了日
+    / .form-group.row
+    /     .col-sm-2
+    /         = f.label :sagyou_d, class: 'col-form-label'
+    /     .col-sm-10
+    /         = f.date_field :sagyou_d_eq, 
+    /                 class: 'form-control'
+
+    / 作業完了日（自）～（至）
     .form-group.row
         .col-sm-2
             = f.label :sagyou_d, class: 'col-form-label'
-        .col-sm-10
-            = f.date_field :sagyou_d_eq, 
+        .col-sm-4
+            = f.date_field :sagyou_d_gteq, 
+                    class: 'form-control'
+        .col-sm-2
+            = f.label :sagyou_d, 
+                    '　　　　～', 
+                    class: 'col-form-label'
+        .col-sm-4
+            = f.date_field :sagyou_d_lteq, 
                     class: 'form-control'
 
     / 連絡受付日（自）～（至）
@@ -141,49 +175,53 @@ br
                 i class="fas fa-undo-alt"  取消
         .col-sm-2
 
+
+        
+
 / 明細部
 .mb-3
     / ページネーションの設定
     = paginate @tasks
     = page_entries_info @tasks
 br
-table.table.table-hover
+/ table-hoverは、マウスを当てると行色が変る
+/ table-stripedは、各行ごとに色を変える
+/ table.table.table-hover
+table.table.table-striped
+    / theadはタイトル行の色を指定
     thead.thead-default
         tr
-            th = Task.human_attribute_name(:id)
+            / th = Task.human_attribute_name(:id)
+            th = sort_link(@q, :id)
             th = sort_link(@q, :enduser_id)
-            th = sort_link(@q, :motouke_id)
             th = sort_link(@q, :jigyou_kbn)
-            th = Task.human_attribute_name(:kijyou)
-            th = Task.human_attribute_name(:naiyou)
-            th = Task.human_attribute_name(:jisyou)
+            th = sort_link(@q, :motouke_id) + " ・ " + Task.human_attribute_name(:kijyou)
+            th = Task.human_attribute_name(:naiyou) + " ・ " + Task.human_attribute_name(:jisyou)
             th = sort_link(@q, :renraku_d)
             th = sort_link(@q, :sagyou_d)
             th = sort_link(@q, :taiou_cd)
             th
+
     tbody
         - @tasks.each do |task|
+            
             tr
                 td = link_to task.id, task
-                / td = task.enduser_id
-                / td = task.motouke_id
                 td = task.enduser.enduser_nm
-                td = task.motouke.motouke_nm
-                
-                / td = task.jigyou_kbn
                 - wjigyou_kbn = case task.jigyou_kbn
                 -        when 1 then '上水'
                 -        when 2 then '下水'
                 -        when 3 then '雨水'
-                -        when 4 then 'アンダーパス'
-                -        when 5 then 'その他'
-                -        else ''
+                -        when 4 then 'アン'
+                -        when 5 then '他　'
+                -        else '　'
                 td = wjigyou_kbn
-
-                td = truncate(task.kijyou, length: 8)
-                td = truncate(task.naiyou, length: 8)
-                td = truncate(task.jisyou, length: 8)
-
+                / td = task.jigyou_kbn
+                
+                td = truncate(task.motouke.motouke_nm, length: 8)
+                / td = truncate(task.kijyou, length: 8)
+                td = truncate(task.naiyou, length: 22)
+                / td = truncate(task.jisyou, length: 20)
                 / td = task.renraku_d
                 - unless task.renraku_d.nil?
                     td = l task.renraku_d, format: :default 
@@ -201,4 +239,19 @@ table.table.table-hover
                             class: 'btn btn-primary mr-3', 
                             data: {"turbolinks" => false}
                             i class='far fa-edit'  編集
-
+            
+            / ２行目
+            tr
+                td 
+                td 
+                td
+                td = truncate(task.kijyou, length: 8)
+                / td = truncate(task.jisyou, length: 22)
+                td.jisyou id="jisyou_${task.id}"
+                    = truncate(task.jisyou, length: 8)
+                
+                td
+                td
+                td
+                td
+                

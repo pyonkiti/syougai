@@ -65,6 +65,8 @@ $(function(){
 
         }).done(function(data){
             get_enuuser_select(data);
+        }).fail(function() {
+            console.log("民間が選択された時に、ajaxでエラー");
         })
     })
 
@@ -88,6 +90,8 @@ $(function(){
 
         }).done(function(data){
             get_enuuser_select(data);
+        }).fail(function() {
+            console.log("団体が選択された時に、ajaxでエラー");
         })
     })
 

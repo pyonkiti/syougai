@@ -49,6 +49,7 @@ ja:
         enduser: エンドユーザ
         motouke: 元請け
         userkey: ユーザーキー
+        search_karam: 横断検索
       user:
         name: 名前
         name_id: ログインID
