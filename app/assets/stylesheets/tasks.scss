@@ -2,3 +2,23 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+#page-top {
+    position: fixed;
+    bottom: 20px;
+    right: 160px;
+    font-size: 77%;
+}
+#page-top a {
+    background: #666;
+    text-decoration: none;
+    color: #fff;
+    width: 60px;
+    padding: 20px 0;
+    text-align: center;
+    display: block;
+    border-radius: 30px;
+}
+#page-top a:hover {
+    text-decoration: none;
+    background: #999;
+}

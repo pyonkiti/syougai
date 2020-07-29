@@ -60,6 +60,7 @@ group :development do
 
   # デバック
   gem 'pry-byebug'
+  gem 'pry-rails'
 
   # デバック用
   gem 'better_errors'
