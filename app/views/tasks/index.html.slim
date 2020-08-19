@@ -258,9 +258,8 @@ table.table.table-striped
                 td 
                 td
                 td = truncate(task.kijyou, length: 8)
-                / td = truncate(task.jisyou, length: 22)
                 td.jisyou id="jisyou_${task.id}"
-                    = truncate(task.jisyou, length: 8)
+                    = truncate(task.jisyou, length: 22)
                 
                 td
                 td
