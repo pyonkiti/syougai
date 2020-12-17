@@ -50,6 +50,15 @@ ja:
         motouke: 元請け
         userkey: ユーザーキー
         search_karam: 横断検索
+        remote_kbn:  リモート保守作業記録入力
+        remote_sagyou_ts: リモート作業時間（自）
+        remote_sagyou_te: リモート作業時間（至）
+        remote_jiyu_kbn: リモート作業事由
+        remote_jiyu_sonota: リモート作業事由（その他）
+        remote_syori_kbn: リモート作業処理内容
+        remote_syori_sonota: リモート作業処理内容（その他）
+        remote_kojin_kbn: 個人情報の扱い
+        remote_syousai: リモート作業の詳細
       user:
         name: 名前
         name_id: ログインID
