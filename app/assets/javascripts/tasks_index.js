@@ -22,6 +22,36 @@ $(function() {
     });
 });
 
+
+
+// ttttttttttttttttttttttttttt
+// ----------------------------------------------
+// リモート保守作業記録の制御
+// ----------------------------------------------
+$(function() {
+
+    // リモート作業事由
+    $('#task_remote_jiyu_kbn').change(function() {
+
+        var r = $('#task_remote_jiyu_kbn').val();
+        alert('err = ' + r);
+    });
+
+    // リモート作業処理内容
+    $('#task_remote_syori_kbn').change(function() {
+
+        var r = $('#task_remote_syori_kbn').val();
+        
+        alert('err =' + r);
+        console.log(r);
+    });
+
+});
+// ttttttttttttttttttttttttttt
+
+
+
+
 // ----------------------------------------------
 // 団体区分の制御
 // ----------------------------------------------
