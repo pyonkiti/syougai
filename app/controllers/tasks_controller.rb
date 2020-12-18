@@ -119,7 +119,15 @@ class TasksController < ApplicationController
         :enduser_id,
         :motouke_id,
         :userkey_id,
-        :search_karam
+        :search_karam,
+        :remote_kbn,
+        :remote_sagyou_ts,
+        :remote_sagyou_te,
+        :remote_jiyu_kbn,
+        :remote_jiyu_sonota,
+        :remote_syori_kbn,
+        :remote_syori_sonota,
+        :remote_kojin_kbn
         )
   end
 

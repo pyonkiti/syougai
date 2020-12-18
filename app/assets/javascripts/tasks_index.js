@@ -30,11 +30,29 @@ $(function() {
 // ----------------------------------------------
 $(function() {
 
+    // リモート保守作業記録入力
+    $('#task_remote_kbn').change(function() {
+
+        // propはチェックボックスの状態を取得
+        var r = $(this).prop('checked');
+        if (r == true) {
+            alert('チェックON = ' + r);
+        } else {
+            alert('チェックoff = ' + r);
+        }
+    });
+
     // リモート作業事由
     $('#task_remote_jiyu_kbn').change(function() {
 
         var r = $('#task_remote_jiyu_kbn').val();
-        alert('err = ' + r);
+        if (r == "その他") {
+            alert('arr = ' + r);
+            $('#task_remote_jiyu_sonota').prop('disabled', false);
+        } else {
+            $('#task_remote_jiyu_sonota').prop('disabled', true);
+            alert('err = ' + r);
+        };
     });
 
     // リモート作業処理内容

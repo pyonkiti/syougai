@@ -10,27 +10,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_15_080552) do
+ActiveRecord::Schema.define(version: 2020_12_17_024605) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-#   create_table "endusers", force: :cascade do |t|
-#     t.integer "enduser_cd", null: false
-#     t.string "todofuken"
-#     t.string "enduser_nm"
-#     t.datetime "created_at", null: false
-#     t.datetime "updated_at", null: false
-#     t.index ["enduser_cd"], name: "index_endusers_on_enduser_cd", unique: true
-#   end
+  create_table "endusers", force: :cascade do |t|
+    t.integer "enduser_cd", null: false
+    t.string "todofuken"
+    t.string "enduser_nm"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["enduser_cd"], name: "index_endusers_on_enduser_cd", unique: true
+  end
 
-#   create_table "motoukes", force: :cascade do |t|
-#     t.integer "motouke_cd", null: false
-#     t.string "motouke_nm", null: false
-#     t.datetime "created_at", null: false
-#     t.datetime "updated_at", null: false
-#     t.index ["motouke_cd"], name: "index_motoukes_on_motouke_cd", unique: true
-#   end
+  create_table "motoukes", force: :cascade do |t|
+    t.integer "motouke_cd", null: false
+    t.string "motouke_nm", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["motouke_cd"], name: "index_motoukes_on_motouke_cd", unique: true
+  end
 
   create_table "tasks", force: :cascade do |t|
     t.integer "dantai_kbn", null: false
@@ -59,11 +59,20 @@ ActiveRecord::Schema.define(version: 2020_07_15_080552) do
     t.integer "del_flg", default: 0, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "search_karam"
     t.bigint "user_id", null: false
     t.bigint "enduser_id", null: false
     t.bigint "motouke_id", null: false
     t.bigint "userkey_id", null: false
-    t.string "search_karam"
+    t.string "remote_kbn", default: "0", null: false
+    t.time "remote_sagyou_ts"
+    t.time "remote_sagyou_te"
+    t.string "remote_jiyu_kbn"
+    t.string "remote_jiyu_sonota"
+    t.string "remote_syori_kbn"
+    t.string "remote_syori_sonota"
+    t.string "remote_kojin_kbn", default: "0", null: false
+    t.text "remote_syousai"
     t.index ["enduser_id"], name: "index_tasks_on_enduser_id"
     t.index ["motouke_id"], name: "index_tasks_on_motouke_id"
     t.index ["naiyou"], name: "index_tasks_on_naiyou"
@@ -74,23 +83,23 @@ ActiveRecord::Schema.define(version: 2020_07_15_080552) do
     t.index ["userkey_id"], name: "index_tasks_on_userkey_id"
   end
 
-#   create_table "userkeys", force: :cascade do |t|
-#     t.string "userkey_cd", null: false
-#     t.string "userkey_nm"
-#     t.datetime "created_at", null: false
-#     t.datetime "updated_at", null: false
-#     t.index ["userkey_cd"], name: "index_userkeys_on_userkey_cd", unique: true
-#   end
+  create_table "userkeys", force: :cascade do |t|
+    t.string "userkey_cd", null: false
+    t.string "userkey_nm"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["userkey_cd"], name: "index_userkeys_on_userkey_cd", unique: true
+  end
 
-#   create_table "users", force: :cascade do |t|
-#     t.string "name", null: false
-#     t.integer "syain_id", null: false
-#     t.string "name_id", null: false
-#     t.string "password_digest", null: false
-#     t.boolean "admin", default: false, null: false
-#     t.datetime "created_at", null: false
-#     t.datetime "updated_at", null: false
-#     t.index ["name_id"], name: "index_users_on_name_id", unique: true
-#   end
+  create_table "users", force: :cascade do |t|
+    t.string "name", null: false
+    t.integer "syain_id", null: false
+    t.string "name_id", null: false
+    t.string "password_digest", null: false
+    t.boolean "admin", default: false, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["name_id"], name: "index_users_on_name_id", unique: true
+  end
 
 end
