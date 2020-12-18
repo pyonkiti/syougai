@@ -127,7 +127,8 @@ class TasksController < ApplicationController
         :remote_jiyu_sonota,
         :remote_syori_kbn,
         :remote_syori_sonota,
-        :remote_kojin_kbn
+        :remote_kojin_kbn,
+        :remote_syousai
         )
   end
 

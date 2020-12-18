@@ -112,6 +112,37 @@ table.table.table-hover
         tr
             th = Task.human_attribute_name(:taiou_sub)
             td = @task.taiou_sub
+
+        / tttttttttttttttttttttttttttttttttttttttt
+        tr
+            th =Task.human_attribute_name(:remote_kbn)
+            td = @task.remote_kbn == "0" ? '入力なし' : '入力あり'
+        tr
+            th = Task.human_attribute_name(:remote_sagyou_ts)
+            - unless @task.remote_sagyou_ts.nil?
+                td = l @task.remote_sagyou_ts, format: :time_hm
+            - else
+                td = nil
+        tr
+            th = Task.human_attribute_name(:remote_sagyou_te)
+            - unless @task.remote_sagyou_te.nil?
+                td = l @task.remote_sagyou_te, format: :time_hm
+            -else
+                td = nil
+        tr
+            th = Task.human_attribute_name(:remote_jiyu_kbn)
+            td = "#{@task.remote_jiyu_kbn}" + "　" + "#{@task.remote_jiyu_sonota}"
+        tr
+            th = Task.human_attribute_name(:remote_syori_kbn)
+            td = "#{@task.remote_syori_kbn}" + "　" + "#{@task.remote_syori_sonota}"
+        tr
+            th = Task.human_attribute_name(:remote_kojin_kbn)
+            td = @task.remote_kojin_kbn == "0" ? '無' : '有'
+        tr
+            th = Task.human_attribute_name(:remote_syousai)
+            td = simple_format(h(@task.remote_syousai), {}, sanitize: false, wapper_tag: "div")
+        / tttttttttttttttttttttttttttttttttttttttt
+
         tr
             th = Task.human_attribute_name(:user_id)
             td = "#{@task.user_id}" + "　" + "#{@task.user.name_id}" + "　" + "#{@task.user.name}"
