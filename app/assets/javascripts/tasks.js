@@ -81,20 +81,28 @@ $(function(){
 
             case 3:
                 // リモート作業事由
-                if ($('#task_remote_jiyu_kbn').val() == "その他") {
-                    $('#task_remote_jiyu_sonota').prop('disabled', false);
+                if ($('#task_remote_kbn').prop('checked') == true) {
+                    if ($('#task_remote_jiyu_kbn').val() == "その他") {
+                        $('#task_remote_jiyu_sonota').prop('disabled', false);
+                    } else {
+                        $('#task_remote_jiyu_sonota').prop('disabled', true);
+                        $('#task_remote_jiyu_sonota').val('');
+                    };
                 } else {
                     $('#task_remote_jiyu_sonota').prop('disabled', true);
-                    $('#task_remote_jiyu_sonota').val('');
                 };
 
             case 4:
                 // リモート作業処理内容
-                if ($('#task_remote_syori_kbn').val() == "その他") {
-                    $('#task_remote_syori_sonota').prop('disabled', false);
+                if ($('#task_remote_kbn').prop('checked') == true) {
+                    if ($('#task_remote_syori_kbn').val() == "その他") {
+                        $('#task_remote_syori_sonota').prop('disabled', false);
+                    } else {
+                        $('#task_remote_syori_sonota').prop('disabled', true);
+                        $('#task_remote_syori_sonota').val('');
+                    };
                 } else {
                     $('#task_remote_syori_sonota').prop('disabled', true);
-                    $('#task_remote_syori_sonota').val('');
                 };
         };
     };

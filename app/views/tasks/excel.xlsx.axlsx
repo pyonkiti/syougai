@@ -109,16 +109,16 @@ wb.add_worksheet(name: "障害情報") do |sheet|
             row.add_cell(task.remote_sagyou_ts, style: styles[:time])
             row.add_cell(task.remote_sagyou_te, style: styles[:time])
             row.add_cell(task.remote_jiyu_kbn)
-            row.add_cell(remote_jiyu_sonota)
-            row.add_cell(remote_syori_kbn)
-            row.add_cell(remote_syori_sonota)
+            row.add_cell(task.remote_jiyu_sonota)
+            row.add_cell(task.remote_syori_kbn)
+            row.add_cell(task.remote_syori_sonota)
             wremote_kojin_kbn = case task.remote_kojin_kbn
                 when "0" then '無'
                 when "1" then '有'
                 else ''
             end
             row.add_cell(wremote_kojin_kbn)
-            row.add_cell(remote_syousai)
+            row.add_cell(task.remote_syousai)
             # --- Add 2020/12 --- (E)
             wdel_flg = task.del_flg == 0 ? nil : '削除'
             row.add_cell(wdel_flg)

@@ -16,12 +16,12 @@
         .col-sm-2
             = f.label :dantai_kbn, class: 'control-label'
         .col-sm-2
-            = f.label :dantai_kbn, '自治体', class: 'control-label', for: 'task_dantai_kbn_1'
+            = f.label :dantai_kbn, '自治体　', class: 'control-label', for: 'task_dantai_kbn_1'
             = f.radio_button :dantai_kbn, 1, 
                     checked: true, 
                     id: 'task_dantai_kbn_1'
         .col-sm-2
-            = f.label :dantai_kbn, '民間', class: 'control-label', for: 'task_dantai_kbn_2'
+            = f.label :dantai_kbn, '民間　', class: 'control-label', for: 'task_dantai_kbn_2'
             = f.radio_button :dantai_kbn, 2, 
                     id: 'task_dantai_kbn_2'
 
@@ -39,16 +39,12 @@
                     class: 'selectpicker form-control',
                     id: 'task_todofuken'
 
-
-
     // 都道府県（隠し項目）
     .form-group
         .col-sm-10
             = f.hidden_field :todofuken, 
                     class: 'form-control bg-warning', 
                     id: 'task_todofuken_hidden'
-
-
 
     / エンドユーザー
     / disabled: true 入力不可
@@ -64,7 +60,6 @@
                     class: 'selectpicker form-control', 
                     id: 'task_enduser_id'
 
-
     / 元請け
     / [i.motouke_nm, i.id]は、[画面表示内容,value]の順で記述 valueはセレクトボックスのコード
     / railsで更新されるのはoptionではなく、value側となる
@@ -79,34 +74,33 @@
                     class: 'form-control', 
                     id: 'task_motouke_id'
 
-
     / 事業区分
     .checkbox.row
         .col-sm-2
             = f.label :jigyou_kbn, class: 'form-check-label'
         .col-sm-2
-            = f.label :jigyou_kbn, '上水', class: 'control-label', 
+            = f.label :jigyou_kbn, '上水　', class: 'control-label', 
                     for: 'task_jigyou_kbn_1'
             = f.radio_button :jigyou_kbn, 1, 
                     checked: true, 
                     id: 'task_jigyou_kbn_1'
         .col-sm-2
-            = f.label :jigyou_kbn, '下水', class: 'control-label', 
+            = f.label :jigyou_kbn, '下水　', class: 'control-label', 
                     for: 'task_jigyou_kbn_2'
             = f.radio_button :jigyou_kbn, 2, 
                     id: 'task_jigyou_kbn_2'
         .col-sm-2
-            = f.label :jigyou_kbn, '雨水', class: 'control-label', 
+            = f.label :jigyou_kbn, '雨水　', class: 'control-label', 
                     for: 'task_jigyou_kbn_3'
             = f.radio_button :jigyou_kbn, 3, 
                     id: 'task_jigyou_kbn_3'
         .col-sm-2
-            = f.label :jigyou_kbn, 'アンダーパス', class: 'control-label', 
+            = f.label :jigyou_kbn, 'アンダーパス　', class: 'control-label', 
                     for: 'task_jigyou_kbn_4'
             = f.radio_button :jigyou_kbn, 4, 
                     id: 'task_jigyou_kbn_4'
         .col-sm-2
-            = f.label :jigyou_kbn, 'その他', class: 'control-label', 
+            = f.label :jigyou_kbn, 'その他　', class: 'control-label', 
                     for: 'task_jigyou_kbn_5'
             = f.radio_button :jigyou_kbn, 5, 
                     id: 'task_jigyou_kbn_5'
@@ -151,7 +145,6 @@
                     class: 'form-control', 
                     id: 'task_syochi'
 
-
     / 備考
     .form-group.row
         .col-sm-2
@@ -175,7 +168,6 @@
                     class: 'selectpicker form-control',
                     id: 'task_syubetu_kbn'
 
-
     / 保守区分
     .form-group.row
         .col-sm-2
@@ -187,9 +179,6 @@
                     class: 'selectpicker form-control',
                     id: 'task_hosyou_kbn'
 
-
-
-
     / 対応者（メイン）・対応者（サブ）
     .form-group.row
         .col-sm-2
@@ -200,7 +189,6 @@
                     placeholder: 'メインで作業した社員コード', 
                     class: 'form-control', 
                     id: 'task_taiou_cd'
-
         .col-sm-2
             = f.label :taiou_sub, class: 'control-label'
         .col-sm-4
@@ -208,7 +196,6 @@
                     placeholder: 'サブで作業した社員名', 
                     class: 'form-control', 
                     id: 'task_taiou_sub'
-
 
     / 連絡受付日・連絡受付時間
     .form-group.row
@@ -224,8 +211,6 @@
             = f.time_field :renraku_t, 
                         class: 'form-control' , 
                         id: 'task_renraku_t'
-
-
 
     / 現地到着日・現地到着時間
     .form-group.row
@@ -256,8 +241,6 @@
             = f.time_field :sagyou_t, 
                     class: 'form-control', 
                     id: 'task_sagyou_t'
-
-
 
     / 社内作業時間
     .form-group.row
@@ -308,7 +291,6 @@
                     class: 'form-control', 
                     id: 'task_project_cd'
 
-
     / ユーザーキー
     .form-group.row
         .col-sm-2
@@ -329,7 +311,7 @@
                     class: 'form-control bg-warning', 
                     id: 'task_user_id'
 
-    # --- Add 2020/12 --- (S)
+    /  --- Add 2020/12 --- (S)
     h2 リモート保守作業記録
     br
     / リモート保守作業記録入力
@@ -413,9 +395,8 @@
                     placeholder: '詳細を記述', 
                     class: 'form-control', 
                     id: 'task_remote_syousai'
-
     br
-    # --- Add 2020/12 --- (E)
+    /  --- Add 2020/12 --- (E)
 
     / 削除フラグ
     / .form-textはヘルプテキスト（注意書き）
@@ -438,13 +419,11 @@
                 class: 'form-control', 
                 id: 'task_search_karam'
 
-
     / 登録ボタン
     br
      = f.button type: 'submit', class: 'btn btn-primary'
                     i class = 'far fa-edit'  登録
     br
-
 
     / 説明文を書く場合
     /    span.form-text.text-muted
