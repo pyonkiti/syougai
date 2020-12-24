@@ -159,9 +159,8 @@ br
             = f.date_field :renraku_d_lteq, 
                     class: 'form-control'
 
-    / ttttttttttttttttttttttttttttttttttttttttttttt
+    # --- Add 2020/12 --- (S)
     / リモート保守作業記録入力
-    / nameを統一する事で、複数にチェックが入る事を防止
     .checkbox.row
         .col-sm-2
             = f.label :remote_kbn, class: 'control-label'
@@ -175,11 +174,9 @@ br
                     id: 'task_remote_kbn_2'
         .col-sm-1
             = f.label :remote_kbn, '全て　', class: 'control-label', for: 'task_remote_kbn_3'
-            = f.radio_button :remote_kbn_lt, "12",
+            = f.radio_button :remote_kbn_lt, "2",
                     id: 'task_remote_kbn_3'
-    / ttttttttttttttttttttttttttttttttttttttttttttt
-
-
+    # --- Add 2020/12 --- (E)
 
     / 削除フラグ （隠し項目）
     / 削除フラグ=0のみ抽出する条件
