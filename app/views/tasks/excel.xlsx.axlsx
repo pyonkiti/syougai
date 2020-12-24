@@ -40,6 +40,26 @@ wb.add_worksheet(name: "障害情報") do |sheet|
     header << Task.human_attribute_name(:userkey_id)
     header << Task.human_attribute_name(:taiou_cd)
     header << Task.human_attribute_name(:taiou_sub)
+    # ttttttttttttttttttttttttttttttttttttt
+    header << Task.human_attribute_name(:remote_kbn)
+    header << Task.human_attribute_name(:remote_sagyou_ts)
+    header << Task.human_attribute_name(:remote_sagyou_te)
+    header << Task.human_attribute_name(:remote_jiyu_kbn)
+    header << Task.human_attribute_name(:remote_jiyu_sonota)
+    header << Task.human_attribute_name(:remote_syori_kbn)
+    header << Task.human_attribute_name(:remote_syori_sonota)
+    header << Task.human_attribute_name(:remote_kojin_kbn)
+    # :  リモート保守作業記録
+    # : リモート作業時間
+    # : リモート作業時間
+    # : リモート作業事由
+    # : リモート作業事由（その他）
+    # : リモート作業処理内容
+    # : リモート作業処理内容（その他）
+    # : 個人情報の扱い
+    # remote_syousai: リモート作業の詳細
+
+    # ttttttttttttttttttttttttttttttttttttt
     header << Task.human_attribute_name(:del_flg)
 
 
@@ -89,6 +109,30 @@ wb.add_worksheet(name: "障害情報") do |sheet|
             row.add_cell(task.userkey.userkey_cd)
             row.add_cell(task.taiou_cd)
             row.add_cell(task.taiou_sub)
+
+            # ttttttttttttttttttttttttttttttttttttt
+            wremote_kbn = case task.remote_kbn
+                    when "0" then '無'
+                    when "1" then '有'
+                    else ''
+            end
+            row.add_cell(wremote_kbn)
+
+            row.add_cell(task.remote_sagyou_ts, style: styles[:time])
+            row.add_cell(task.remote_sagyou_te, style: styles[:time])
+            row.add_cell(task.remote_jiyu_kbn)
+            row.add_cell(remote_jiyu_sonota)
+            row.add_cell(remote_syori_kbn)
+            row.add_cell(remote_syori_sonota)
+            
+            wremote_kojin_kbn = case task.remote_kojin_kbn
+                when "0" then '無'
+                when "1" then '有'
+                else ''
+            end
+            row.add_cell(wremote_kojin_kbn)
+
+            # ttttttttttttttttttttttttttttttttttttt
 
             wdel_flg = task.del_flg == 0 ? nil : '削除'
             row.add_cell(wdel_flg)

@@ -25,16 +25,16 @@ br
         .col-sm-2
             = f.label :dantai_kbn, class: 'control-label'
         .col-sm-1
-            = f.label :dantai_kbn, '自治体', class: 'control-label', for: 'task_dantai_kbn_1'
+            = f.label :dantai_kbn, '自治体　', class: 'control-label', for: 'task_dantai_kbn_1'
             = f.radio_button :dantai_kbn_eq, 1,
                     checked: true,
                     id: 'task_dantai_kbn_1'
         .col-sm-1
-            = f.label :dantai_kbn, '民間', class: 'control-label', for: 'task_dantai_kbn_2'
+            = f.label :dantai_kbn, '民間　', class: 'control-label', for: 'task_dantai_kbn_2'
             = f.radio_button :dantai_kbn_eq, 2, 
                     id: 'task_dantai_kbn_2'
         .col-sm-1
-            = f.label :dantai_kbn, '全て', class: 'control-label', for: 'task_dantai_kbn_3'
+            = f.label :dantai_kbn, '全て　', class: 'control-label', for: 'task_dantai_kbn_3'
             = f.radio_button :dantai_kbn_lt, 3,
                      id: 'task_dantai_kbn_3'
 
@@ -129,14 +129,6 @@ br
                     placeholder: '社員コード', 
                     class: 'form-control'
 
-    / 作業完了日
-    / .form-group.row
-    /     .col-sm-2
-    /         = f.label :sagyou_d, class: 'col-form-label'
-    /     .col-sm-10
-    /         = f.date_field :sagyou_d_eq, 
-    /                 class: 'form-control'
-
     / 作業完了日（自）～（至）
     .form-group.row
         .col-sm-2
@@ -166,6 +158,27 @@ br
         .col-sm-4
             = f.date_field :renraku_d_lteq, 
                     class: 'form-control'
+
+    / ttttttttttttttttttttttttttttttttttttttttttttt
+    / リモート保守作業記録入力
+    / nameを統一する事で、複数にチェックが入る事を防止
+    .checkbox.row
+        .col-sm-2
+            = f.label :remote_kbn, class: 'control-label'
+        .col-sm-1
+            = f.label :remote_kbn, '有　', class: 'control-label', for: 'task_remote_kbn_1'
+            = f.radio_button :remote_kbn_eq, "1",
+                    id: 'task_remote_kbn_1'
+        .col-sm-1
+            = f.label :remote_kbn, '無　', class: 'control-label', for: 'task_remote_kbn_2'
+            = f.radio_button :remote_kbn_eq, "0",
+                    id: 'task_remote_kbn_2'
+        .col-sm-1
+            = f.label :remote_kbn, '全て　', class: 'control-label', for: 'task_remote_kbn_3'
+            = f.radio_button :remote_kbn_lt, "12",
+                    id: 'task_remote_kbn_3'
+    / ttttttttttttttttttttttttttttttttttttttttttttt
+
 
 
     / 削除フラグ （隠し項目）
@@ -266,4 +279,4 @@ table.table.table-striped
                 td
                 td
                 
-<p id="page-top"><a href="#wrap">上へ</a></p>
+<p id="page-top"><a href="#wrap">Top</a></p>

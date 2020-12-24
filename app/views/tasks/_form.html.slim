@@ -339,23 +339,23 @@
     .checkbox.row
         .col-sm-2
             = f.label :remote_kbn, class: 'control-label', for: 'task_remote_kbn'
-        .col-sm-10
+        .col-sm-1
             = f.check_box :remote_kbn,
                     class: 'custom-check-input',
                     id: 'task_remote_kbn'
-            | 　入力する
+        .col-sm-9
+            <p id='task_remote_kbn_lbl'></p>
 
     / リモート作業時間（自）～（至）
     .form-group.row
         .col-sm-2
-            = f.label :remote_sagyou_ts, class: 'control-label'
+            = f.label 'リモート作業時間', class: 'control-label'
         .col-sm-4
             = f.time_field :remote_sagyou_ts, 
                     class: 'form-control', 
                     id: 'task_remote_sagyou_ts'
         .col-sm-2
-            = f.label :remote_sagyou_te, 
-                    '　　　　　～', 
+            = f.label '　　　　～', 
                     class: 'col-form-label'
         .col-sm-4
             = f.time_field :remote_sagyou_te, 
@@ -363,8 +363,6 @@
                     id: 'task_remote_sagyou_te'
 
     / リモート作業事由
-    / selectpickerを使うとセレクトがモダンになる
-    / {include_blank: true}を付けない時は、{}を付けないとエラーになる
     - remote_jiyu_kbn_ary = ['調査','障害対応','プログラム', 'その他']
     .form-group.row
         .col-sm-2
@@ -394,7 +392,7 @@
                     class: 'selectpicker form-control',
                     id: 'task_remote_syori_kbn'
         .col-sm-6
-            = f.text_field :remote_jiyu_sonota, 
+            = f.text_field :remote_syori_sonota, 
                     placeholder: 'その他の処理', 
                     class: 'form-control', 
                     id: 'task_remote_syori_sonota'
@@ -405,11 +403,12 @@
     .checkbox.row
         .col-sm-2
             = f.label :remote_kojin_kbn, class: 'control-label', for: 'task_remote_kojin_kbn'
-        .col-sm-10
+        .col-sm-1
             = f.check_box :remote_kojin_kbn,
                     class: 'custom-check-input',
                     id: 'task_remote_kojin_kbn'
-            | 　有り
+        .col-sm-9
+            <p id='task_remote_kojin_kbn_lbl'></p>
 
     / リモート作業の詳細
     .form-group.row

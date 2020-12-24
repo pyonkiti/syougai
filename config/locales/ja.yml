@@ -51,8 +51,8 @@ ja:
         userkey: ユーザーキー
         search_karam: 横断検索
         remote_kbn:  リモート保守作業記録
-        remote_sagyou_ts: リモート作業時間
-        remote_sagyou_te: リモート作業時間
+        remote_sagyou_ts: リモート作業時間（自）
+        remote_sagyou_te: リモート作業時間（至）
         remote_jiyu_kbn: リモート作業事由
         remote_jiyu_sonota: リモート作業事由（その他）
         remote_syori_kbn: リモート作業処理内容

@@ -1,4 +1,7 @@
 // ----------------------------------------------
+// index 画面
+// ----------------------------------------------
+// ----------------------------------------------
 // スクロールボタン
 // ----------------------------------------------
 $(function() {
@@ -21,54 +24,6 @@ $(function() {
         return false;
     });
 });
-
-
-
-// ttttttttttttttttttttttttttt
-// ----------------------------------------------
-// リモート保守作業記録の制御
-// ----------------------------------------------
-$(function() {
-
-    // リモート保守作業記録入力
-    $('#task_remote_kbn').change(function() {
-
-        // propはチェックボックスの状態を取得
-        var r = $(this).prop('checked');
-        if (r == true) {
-            alert('チェックON = ' + r);
-        } else {
-            alert('チェックoff = ' + r);
-        }
-    });
-
-    // リモート作業事由
-    $('#task_remote_jiyu_kbn').change(function() {
-
-        var r = $('#task_remote_jiyu_kbn').val();
-        if (r == "その他") {
-            alert('arr = ' + r);
-            $('#task_remote_jiyu_sonota').prop('disabled', false);
-        } else {
-            $('#task_remote_jiyu_sonota').prop('disabled', true);
-            alert('err = ' + r);
-        };
-    });
-
-    // リモート作業処理内容
-    $('#task_remote_syori_kbn').change(function() {
-
-        var r = $('#task_remote_syori_kbn').val();
-        
-        alert('err =' + r);
-        console.log(r);
-    });
-
-});
-// ttttttttttttttttttttttttttt
-
-
-
 
 // ----------------------------------------------
 // 団体区分の制御
@@ -105,6 +60,24 @@ $(function() {
         $('#task_todofuken').val('');
         $('#task_enduser_id').val('');
     })
+
+    // リモート保守作業記録入力（検索画面）＝ 有
+    $('#task_remote_kbn_1').change(function() {
+        $('#task_remote_kbn_2').prop('checked', false);
+        $('#task_remote_kbn_3').prop('checked', false);
+    });
+
+    // リモート保守作業記録入力（検索画面）＝ 無
+    $('#task_remote_kbn_2').change(function() {
+        $('#task_remote_kbn_1').prop('checked', false);
+        $('#task_remote_kbn_3').prop('checked', false);
+    });
+
+    // リモート保守作業記録入力（検索画面）＝ 全て
+    $('#task_remote_kbn_3').change(function() {
+        $('#task_remote_kbn_1').prop('checked', false);
+        $('#task_remote_kbn_2').prop('checked', false);
+    });
 });
 
 
@@ -200,5 +173,11 @@ $(function(){
             } else {
             }
         }
+
+        // リモート保守作業記録入力（検索画面）の初期表示
+        // Viewのradio_buttonで、check: trueでデフォルト表示をさせると制御がおかしくなる事象回避のためここに記述
+        $('#task_remote_kbn_1').prop('checked', false);
+        $('#task_remote_kbn_2').prop('checked', false);
+        $('#task_remote_kbn_3').prop('checked', true);
     });
 });
