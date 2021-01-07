@@ -6,7 +6,8 @@ class Task < ApplicationRecord
     # validates :enduser_id, presence: true           # エンドユーザー
     # validates :motouke_id, presence: true           # 元請け
     validates :taiou_cd,   presence: true           # 対応者コード
-
+    validates :renraku_d,  presence: true           # 連絡受付日
+    
     # カンマエラーチェック
     #validate :vali_not_including_comma         # エンドユーザー
 

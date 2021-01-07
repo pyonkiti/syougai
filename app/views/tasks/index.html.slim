@@ -102,8 +102,13 @@ br
     - title_disp += "　・対応者\n";
     - title_disp += "　・対応者（サブ）\n";
     - title_disp += "　・プロジェクトコード\n";
-    - title_disp += "　・ユーザーキー";
-    
+    - title_disp += "　・ユーザーキー\n";
+    - title_disp += "　・リモート作業事由\n";
+    - title_disp += "　・リモート作業事由（その他）\n";
+    - title_disp += "　・リモート作業処理内容\n";
+    - title_disp += "　・リモート作業処理内容（その他）\n";
+    - title_disp += "　・リモート作業の詳細";
+
     / 横断検索
     / titleは表示させる内容
     / _contは、Like %検索対象%
@@ -193,12 +198,9 @@ br
             = f.button type: "submit", class: 'btn btn-outline-primary'
                 i class="fa fa-search"  検索
         .col-sm-2
-            = link_to tasks_path, class: 'btn btn-outline-primary'
+            = link_to tasks_path, class: 'btn btn-outline-primary', id: 'task_btn_cancel'
                 i class="fas fa-undo-alt"  取消
         .col-sm-2
-
-
-        
 
 / 明細部
 .mb-3

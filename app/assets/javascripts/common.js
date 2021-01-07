@@ -15,6 +15,31 @@ function disp_log(msg, wval) {
 // ----------------------------------------------
 // 共通関数 ： アラート表示
 // ----------------------------------------------
-function disp_alert(msg, wval) {
-    alert(msg + ' = ' + wval);
+function disp_alert(msg1, msg2, wval) {
+    alert(msg1 + ' = ' + msg2 + ' = ' + wval);
 };
+
+// ----------------------------------------------
+// スクロールボタン
+// ----------------------------------------------
+$(function() {
+
+    var topBtn = $('#page-top');
+    topBtn.hide();
+
+    // スクロールが100に達したらボタン表示
+    $(window).scroll(function () {
+        if ($(this).scrollTop() > 100) {
+            topBtn.fadeIn();            // ボタン表示
+        } else {
+            topBtn.fadeOut();           // ボタン非表示
+        }
+    });
+
+    //スクロールしてトップ
+    topBtn.click(function () {
+        $('body,html').animate({ scrollTop: 0 }, 500);
+        return false;
+    });
+});
+

@@ -144,19 +144,24 @@ class TasksController < ApplicationController
                 .select("tasks.*","endusers.enduser_nm","motoukes.motouke_nm","userkeys.userkey_cd")
                 .find(params[:id])
 
-    _search_karam  = "#{(@task.todofuken).chomp}"     + ","
-    _search_karam += "#{(@task.kijyou).chomp}"        + ","
-    _search_karam += "#{(@task.naiyou).chomp}"        + ","
-    _search_karam += "#{(@task.jisyou).chomp}"        + ","
-    _search_karam += "#{(@task.syochi).chomp}"        + ","
-    _search_karam += "#{(@task.biko).chomp}"          + ","
-    _search_karam += "#{(@task.project_cd).chomp}"    + ","
-    _search_karam += "#{(@task.taiou_cd).to_s.chomp}" + ","
-    _search_karam += "#{(@task.taiou_sub).chomp}"     + ","
-    _search_karam += "#{(@task.enduser_nm).chomp}"    + ","
-    _search_karam += "#{(@task.motouke_nm).chomp}"    + ","
-    _search_karam += "#{(@task.userkey_cd).chomp}"
-
+    _search_karam  = "#{(@task.todofuken).chomp}"           + ","
+    _search_karam += "#{(@task.kijyou).chomp}"              + ","
+    _search_karam += "#{(@task.naiyou).chomp}"              + ","
+    _search_karam += "#{(@task.jisyou).chomp}"              + ","
+    _search_karam += "#{(@task.syochi).chomp}"              + ","
+    _search_karam += "#{(@task.biko).chomp}"                + ","
+    _search_karam += "#{(@task.project_cd).chomp}"          + ","
+    _search_karam += "#{(@task.taiou_cd).to_s.chomp}"       + ","
+    _search_karam += "#{(@task.taiou_sub).chomp}"           + ","
+    _search_karam += "#{(@task.enduser_nm).chomp}"          + ","
+    _search_karam += "#{(@task.motouke_nm).chomp}"          + ","
+    _search_karam += "#{(@task.userkey_cd).chomp}"          + ","
+    _search_karam += "#{(@task.remote_jiyu_kbn).chomp}"     + ","
+    _search_karam += "#{(@task.remote_jiyu_sonota).chomp}"  + ","
+    _search_karam += "#{(@task.remote_syori_kbn).chomp}"    + ","
+    _search_karam += "#{(@task.remote_syori_sonota).chomp}" + ","
+    _search_karam += "#{(@task.remote_syousai).chomp}"
+    
     @task.update(search_karam: _search_karam)
   end
 end

@@ -201,6 +201,7 @@
     .form-group.row
         .col-sm-2
             = f.label :renraku_d, class: 'control-label'
+            span.badge.badge-warning 必須
         .col-sm-4
             = f.date_field :renraku_d, 
                         class: 'form-control', 
@@ -395,6 +396,9 @@
                     placeholder: '詳細を記述', 
                     class: 'form-control', 
                     id: 'task_remote_syousai'
+            span.form-text.text-muted
+            | ※ リモート保守作業が２日以上に渡る場合は、その旨を詳細欄に記入して下さい。　記入例）作業日：2021年2月1日 ～ 2021年2月3日
+            
     br
     /  --- Add 2020/12 --- (E)
 
@@ -424,7 +428,3 @@
      = f.button type: 'submit', class: 'btn btn-primary'
                     i class = 'far fa-edit'  登録
     br
-
-    / 説明文を書く場合
-    /    span.form-text.text-muted
-    /    | ※ 社員コードを入力して下さい

@@ -15,7 +15,7 @@ $(function(){
     // イベント : リモート保守作業記録入力
     // ----------------------------------------------
     $('#task_remote_kbn').change(function() {
-        remote_disp(2);                     // リモート保守作業記録の初期表示
+        remote_disp(2);                     // リモート保守作業記録
     });
 
     // ----------------------------------------------
@@ -68,6 +68,7 @@ $(function(){
                 } else {
                     $('p#task_remote_kojin_kbn_lbl').text('無');
                 };
+                break;
 
             case 2:
                 // リモート保守作業記録の初期表示
@@ -78,8 +79,9 @@ $(function(){
                     remote_init(true);
                     $('p#task_remote_kbn_lbl').text('入力不可');
                 };
+                break;
 
-            case 3:
+                case 3:
                 // リモート作業事由
                 if ($('#task_remote_kbn').prop('checked') == true) {
                     if ($('#task_remote_jiyu_kbn').val() == "その他") {
@@ -91,6 +93,7 @@ $(function(){
                 } else {
                     $('#task_remote_jiyu_sonota').prop('disabled', true);
                 };
+                break;
 
             case 4:
                 // リモート作業処理内容
@@ -104,6 +107,7 @@ $(function(){
                 } else {
                     $('#task_remote_syori_sonota').prop('disabled', true);
                 };
+                break;
         };
     };
 });
