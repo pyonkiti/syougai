@@ -156,11 +156,14 @@ class TasksController < ApplicationController
     _search_karam += "#{(@task.enduser_nm).chomp}"          + ","
     _search_karam += "#{(@task.motouke_nm).chomp}"          + ","
     _search_karam += "#{(@task.userkey_cd).chomp}"          + ","
-    _search_karam += "#{(@task.remote_jiyu_kbn).chomp}"     + ","
-    _search_karam += "#{(@task.remote_jiyu_sonota).chomp}"  + ","
-    _search_karam += "#{(@task.remote_syori_kbn).chomp}"    + ","
-    _search_karam += "#{(@task.remote_syori_sonota).chomp}" + ","
-    _search_karam += "#{(@task.remote_syousai).chomp}"
+    
+    # 入力不可項目はサーバーに送信されないためnilが入る
+    # nil.chompをするとエラーになる対応
+    _search_karam += "#{((@task.remote_jiyu_kbn).nil? ? "": @task.remote_jiyu_kbn).chomp}"         + ","
+    _search_karam += "#{((@task.remote_jiyu_sonota).nil? ? "": @task.remote_jiyu_sonota).chomp}"   + ","
+    _search_karam += "#{((@task.remote_syori_kbn).nil? ? "": @task.remote_syori_kbn).chomp}"       + ","
+    _search_karam += "#{((@task.remote_syori_sonota).nil? ? "": @task.remote_syori_sonota).chomp}" + ","
+    _search_karam += "#{((@task.remote_syousai).nil? ? "": @task.remote_syousai).chomp}"
     
     @task.update(search_karam: _search_karam)
   end
