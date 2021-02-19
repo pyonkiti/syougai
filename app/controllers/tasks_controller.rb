@@ -11,18 +11,23 @@ class TasksController < ApplicationController
     _sql  += "Group by renraku_ym Order by renraku_ym"
 
     @ary = []
+    now = Time.current 
+    kako = now.ago(11.month).strftime("%Y/%m")
+    # kako = "2020/07"
 
     # SQL文を直接実行
     @grp =  ActiveRecord::Base.connection.select_all(_sql)
     @grp.each do | row |
-        _ary2 = []
-        _ary2 << row["renraku_ym"].to_s
-        _ary2 << row["renraku_cn"].to_s
-        @ary  << _ary2
+        if row["renraku_ym"].to_s > kako
+            _ary2 = []
+            _ary2 << row["renraku_ym"].to_s
+            _ary2 << row["renraku_cn"].to_s
+            @ary  << _ary2
+        end
     end
 
     # logger.debug("#{@ary}")
-    Rails.application.config.deb_logger.debug(@ary)
+    # Rails.application.config.deb_logger.debug(@ary)
     # @ary = [["aa","1"],["bb","2"],["cc","2"]]
   end
 
@@ -39,13 +44,15 @@ class TasksController < ApplicationController
 
     @grp =  ActiveRecord::Base.connection.select_all(_sql)
     @grp.each do | row |
-        _ary2 = []
-        _ary2 << row["enduser_nm_gr"].to_s
-        _ary2 << row["enduser_nm_cn"].to_s
-        @ary  << _ary2
+        # 件数が１件のデータは表示対象外とする
+        if row["enduser_nm_cn"].to_i > 1
+            _ary2 = []
+            _ary2 << row["enduser_nm_gr"].to_s
+            _ary2 << row["enduser_nm_cn"].to_s
+            @ary  << _ary2
+        end
     end
-
-    Rails.application.config.deb_logger.debug(@ary)
+    # Rails.application.config.deb_logger.debug(@ary)
   end
 
   # Excel出力
