@@ -114,3 +114,7 @@ gem 'caxlsx_rails'
 
 # ページネーション
 gem 'kaminari'
+
+# グラフ表示
+gem 'chartkick'
+gem 'groupdate'

@@ -28,15 +28,21 @@ html
                 
                 / ログイン後の表示
                 li.nav-item = link_to '障害情報一覧', tasks_path, 
-                                class: 'nav-link', 
-                                data: {"turbolinks" => false}
-                
+                            class: 'nav-link', 
+                            data: {"turbolinks" => false}
+
+                li.nav-item.dropdown
+                        a#navbarDropdown.nav-link.dropdown-toggle[href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"]
+                            |  統計グラフ
+                        .dropdown-menu[aria-labelledby="navbarDropdown"]
+                            = link_to '月別件数推移', graph1_tasks_path, class: 'dropdown-item'
+                            = link_to 'ユーザ別件数', graph2_tasks_path, class: 'dropdown-item'
+
                 / admin権限がある場合のみ表示
                 - if current_user.admin?
                     / ドロップダウンリストに含める事とした
                     / li.nav-item = link_to 'ユーザー一覧', admin_users_path, 
                     /             class: 'nav-link'
-
                     li.nav-item.dropdown
                         a#navbarDropdown.nav-link.dropdown-toggle[href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"]
                             |  マスタメンテ
@@ -45,6 +51,7 @@ html
                             = link_to '元請け', master_motoukes_path, class: 'dropdown-item'
                             = link_to 'エンドユーザー', master_endusers_path, class: 'dropdown-item'
                             = link_to 'ユーザーキー', master_userkeys_path, class: 'dropdown-item'
+                
                 li.nav-item = link_to 'ログアウト', logout_path, method: :delete, 
                                 class: 'nav-link'
             - else

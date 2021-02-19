@@ -1,0 +1,21 @@
+/ h2 グラフ２
+br
+
+/ 横棒グラフ
+= column_chart @ary, discrete: true, width: "1300px", height: "300px", title:"ユーザー別障害発生件数", xtitle: "エンドユーザー", ytitle: "件数"
+
+
+
+
+/ 円グラフ
+/ chartkick
+/ legend: 'bottom'項目説明を下段にできる
+/ discrete: true にすると、日付の英語表記を日本語表記にしてくれる
+/ = pie_chart @data, suffix: "件", title:"あ", height: "450px", donut: true, legend: 'bottom' 
+/ = pie_chart @data, donut: true, library: {title: {text: "支出<br> #{100}"}}
+/ = pie_chart @data, donut: true, library: {plotOptions: {pie: {dataLabels: {format: "<b>{point.name}</b>: {point.y} ({point.percentage:.1f}%)"}}}}
+/ = pie_chart @data, library: {plotOptions: { pie: { dataLabels: { enabled: false }}}}
+
+
+
+/ pie_chart chartkick

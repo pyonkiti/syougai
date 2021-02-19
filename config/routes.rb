@@ -9,10 +9,9 @@ Rails.application.routes.draw do
         resources :endusers
     end
     
-    
     # ログイン
-    get '/login', to: 'sessions#new'
-    post '/login', to: 'sessions#create'
+    get '/login',     to: 'sessions#new'
+    post '/login',    to: 'sessions#create'
     delete '/logout', to: 'sessions#destroy'
 
     # ルート
@@ -31,6 +30,8 @@ Rails.application.routes.draw do
             get 'search'
             get 'search_mkn'
             get 'excel'
+            get 'graph1'
+            get 'graph2'
         end
     end
 

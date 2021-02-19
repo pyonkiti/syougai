@@ -39,7 +39,7 @@
              search_tasks GET    /tasks/search(.:format)                                                                  tasks#search
          search_mkn_tasks GET    /tasks/search_mkn(.:format)                                                              tasks#search_mkn
               excel_tasks GET    /tasks/excel(.:format)                                                                   tasks#excel
-         search_odn_tasks GET    /tasks/search_odn(.:format)                                                              tasks#search_odn
+              graph_tasks GET    /tasks/graph(.:format)                                                                   tasks#graph
                     tasks GET    /tasks(.:format)                                                                         tasks#index
                           POST   /tasks(.:format)                                                                         tasks#create
                  new_task GET    /tasks/new(.:format)                                                                     tasks#new

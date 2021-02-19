@@ -2,6 +2,51 @@ class TasksController < ApplicationController
 
   before_action :set_task, only: [:show, :edit, :update, :destroy]
   
+  # 折れ線グラフ表示（x:連絡年月 y:発生件数）
+  def graph1
+
+    _sql   = "Select to_char(renraku_d, 'YYYY/MM') As renraku_ym, "
+    _sql  += "Count(to_char(renraku_d, 'YYYY/MM')) As renraku_cn "
+    _sql  += "From tasks Where (renraku_d is not null) "
+    _sql  += "Group by renraku_ym Order by renraku_ym"
+
+    @ary = []
+
+    # SQL文を直接実行
+    @grp =  ActiveRecord::Base.connection.select_all(_sql)
+    @grp.each do | row |
+        _ary2 = []
+        _ary2 << row["renraku_ym"].to_s
+        _ary2 << row["renraku_cn"].to_s
+        @ary  << _ary2
+    end
+
+    # logger.debug("#{@ary}")
+    # Rails.application.config.deb_logger.debug(@ary)
+  end
+
+  # 横棒グラフ表示（x:ユーザー y:発生件数）
+  def graph2
+
+    _sql   = "Select en.enduser_nm As enduser_nm_gr, "
+    _sql  += "Count(en.enduser_nm) As enduser_nm_cn "
+    _sql  += "From tasks As ta Left Join endusers As en On ta.enduser_id = en.id "
+    _sql  += "Where (en.enduser_nm is not null) "
+    _sql  += "Group by enduser_nm_gr Order by enduser_nm_cn DESC"
+
+    @ary = []
+
+    @grp =  ActiveRecord::Base.connection.select_all(_sql)
+    @grp.each do | row |
+        _ary2 = []
+        _ary2 << row["enduser_nm_gr"].to_s
+        _ary2 << row["enduser_nm_cn"].to_s
+        @ary  << _ary2
+    end
+
+    # Rails.application.config.deb_logger.debug(@ary)
+  end
+
   # Excel出力
   def excel
 
@@ -39,7 +84,7 @@ class TasksController < ApplicationController
     # @q = current_user.tasks.ransack(params[:q])
 
     # ransackで検索
-    # Inner Joinしている
+    # Left Joinしている
     @q = Task.joins(:enduser, :motouke, :userkey, :user)
                 .select("tasks.*, endusers.enduser_nm, motoukes.motouke_nm, userkeys.userkey_cd, userkeys.userkey_nm, users.name, users.name_id")
                 .where(del_flg: 0)
@@ -49,6 +94,8 @@ class TasksController < ApplicationController
     
     # binding.pry
     # puts "テストindex"
+    
+
   end
 
   def show
