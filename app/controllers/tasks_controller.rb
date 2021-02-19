@@ -22,8 +22,8 @@ class TasksController < ApplicationController
     end
 
     # logger.debug("#{@ary}")
-    # Rails.application.config.deb_logger.debug(@ary)
-    @ary = [["aa","1"],["bb","2"]]
+    Rails.application.config.deb_logger.debug(@ary)
+    # @ary = [["aa","1"],["bb","2"],["cc","2"]]
   end
 
   # 横棒グラフ表示（x:ユーザー y:発生件数）
@@ -45,7 +45,7 @@ class TasksController < ApplicationController
         @ary  << _ary2
     end
 
-    # Rails.application.config.deb_logger.debug(@ary)
+    Rails.application.config.deb_logger.debug(@ary)
   end
 
   # Excel出力
